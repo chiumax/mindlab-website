@@ -31,6 +31,10 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
+<<<<<<< HEAD
+=======
+        date(formatString: "MMMM DD, YYYY")
+>>>>>>> Add Project table of contents and demo projects
         path
         title
       }
