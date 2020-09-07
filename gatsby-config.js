@@ -9,6 +9,16 @@ module.exports = {
     title: config.defaultTitle,
     description: config.defaultDescription,
     author: config.author,
+    menuLinks: [
+      {
+        name: 'About',
+        link: '/about',
+      },
+      {
+        name: 'Projects',
+        link: '/projects',
+      },
+    ],
   },
   plugins: [
     'gatsby-plugin-react-helmet',

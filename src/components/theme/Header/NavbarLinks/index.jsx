@@ -1,21 +1,42 @@
-import React, {useContext} from 'react';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import React, { useContext } from 'react';
 import { ThemeContext } from 'providers/ThemeProvider';
-import ToggleTheme from 'components/theme/Header/ToggleTheme';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+
 import { Wrapper } from './styles';
 
-const NavbarLinks = ({ desktop }) => {
+export default function NavbarLinks({ desktop }) {
   const { theme } = useContext(ThemeContext);
+
+  const routes = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+          menuLinks {
+            name
+            link
+          }
+        }
+      }
+    }
+  `).site.siteMetadata.menuLinks.map(menuLink => (
+    <Link to={menuLink.link} key={menuLink.link} style={{ marginRight: '1rem' }}>
+      {menuLink.name}
+    </Link>
+  ));
 
   return (
     <Wrapper desktop={desktop} theme={theme}>
-      <AnchorLink href="#about">About</AnchorLink>
-      <AnchorLink href="#projects">Projects</AnchorLink>
-      <AnchorLink href="#contact">Contact</AnchorLink>
-      <ToggleTheme />
+      <div
+        style={{
+          margin: '0 auto',
+          maxWidth: 960,
+          padding: '0px 1.0875rem 1.45rem',
+          paddingTop: 0,
+        }}
+      >
+        {routes}
+      </div>
     </Wrapper>
-  )
-
-};
-
-export default NavbarLinks;
+  );
+}

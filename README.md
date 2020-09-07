@@ -8,3 +8,9 @@ you need gatsby installed first. [docs](https://www.gatsbyjs.com/tutorial/part-z
 
 1. `npm install`
 2. `npm start`
+
+## Routing in Gatsby
+
+Reference: https://www.gatsbyjs.com/docs/creating-dynamic-navigation
+
+Gatsby uses GraphQL to dynamically create navigation links.
