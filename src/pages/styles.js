@@ -48,3 +48,11 @@ export const Details = styled.div`
     }
   }
 `;
+
+export const ProjectCardContainer = styled.div`
+  display: flex;
+`;
+
+export const ProjectCard = styled.div`
+  border: 1px;
+`;
