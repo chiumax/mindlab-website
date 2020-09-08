@@ -49,10 +49,23 @@ export const Details = styled.div`
   }
 `;
 
-export const ProjectCardContainer = styled.div`
+export const MobileProjectCardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const DesktopProjectCardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+`;
+
+export const ProjectCardColumn = styled.div`
   display: flex;
 `;
 
 export const ProjectCard = styled.div`
-  border: 1px;
+  flex: 1;
 `;
