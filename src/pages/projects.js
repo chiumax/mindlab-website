@@ -93,19 +93,6 @@ const Projects = ({ data }) => {
               </ProjectCardColumn>
             </DesktopProjectCardContainer>
           )}
-          <ProjectCardContainer>
-            {posts
-              .filter(post => post.node.frontmatter.title.length > 0)
-              .map(({ node: post }) => (
-                <ProjectCard key={post.id}>
-                  <h1>
-                    <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-                  </h1>
-                  <h2>{post.frontmatter.date}</h2>
-                  <p>{post.excerpt}</p>
-                </ProjectCard>
-              ))}
-          </ProjectCardContainer>
         </Details>
       </PageWrapper>
     </Layout>

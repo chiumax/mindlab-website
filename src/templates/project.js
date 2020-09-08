@@ -27,16 +27,14 @@ export default function Template({
 }
 
 export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-<<<<<<< HEAD
-=======
-        date(formatString: "MMMM DD, YYYY")
->>>>>>> Add Project table of contents and demo projects
-        path
-        title
+  query {
+    allMarkdownRemark(limit: 1000) {
+      edges {
+        node {
+          frontmatter {
+            path
+          }
+        }
       }
     }
   }
