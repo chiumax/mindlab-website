@@ -25,6 +25,7 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-breakpoints',
     {
       resolve: 'gatsby-source-graphql',
       options: {
@@ -89,7 +90,7 @@ module.exports = {
         path: `${__dirname}/src/projects`,
       },
     },
-    // Transforms Markdown/YAML files to HTML?JSON
+    // Transforms Markdown/YAML files to HTML/JSON
     {
       resolve: `gatsby-transformer-remark`,
       options: {
