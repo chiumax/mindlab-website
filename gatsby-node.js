@@ -31,9 +31,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
   );
 
-  // eslint-disable-next-line no-console
-  console.log('result', result.data.allMarkdownRemark);
-
   // Handle errors
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
