@@ -62,6 +62,11 @@ export const DesktopProjectCardContainer = styled.div`
   align-content: space-between;
 `;
 
+export const ProjectCardColumn = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 export const ProjectCard = styled.div`
   flex: 1;
 `;
