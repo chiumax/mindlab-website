@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 
-export const PageWrapper = styled.div`
+export const AnnouncementsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 4rem;
+  background-size: contain;
+  background-position: right top;
+  background-repeat: no-repeat;
+`;
+
+export const IntroWrapper = styled.div`
   padding: 4rem 0;
   display: flex;
   align-items: center;
@@ -49,24 +58,14 @@ export const Details = styled.div`
   }
 `;
 
-export const MobileProjectCardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const DesktopProjectCardContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-between;
-`;
-
-export const ProjectCardColumn = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-export const ProjectCard = styled.div`
+export const Thumbnail = styled.div`
   flex: 1;
+
+  @media (max-width: 960px) {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+  }
 `;
