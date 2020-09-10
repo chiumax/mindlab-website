@@ -1,16 +1,43 @@
-# mindlab_website
+# Mindlab Website
+
 UMD CS MindLab website development repo
-test
 
-how to run:
+## Setup for Contributors
 
-you need gatsby installed first. [docs](https://www.gatsbyjs.com/tutorial/part-zero/#using-the-gatsby-cli)
+Install NPM via <https://www.npmjs.com/get-npm>
 
-1. `npm install`
-2. `npm start`
+Install Gatsby CLI globally
+
+```bash
+npm install -g gatsby-cli
+```
+
+Clone the project
+
+```bash
+git clone https://github.com/fwajid/mindlab_website.git
+```
+
+Go into the project folder
+
+```bash
+cd mindlab_website
+```
+
+Install project dependencies
+
+```bash
+npm install
+```
+
+Run the Dev server
+
+```bash
+npm run start
+```
 
 ## Routing in Gatsby
 
-Reference: https://www.gatsbyjs.com/docs/creating-dynamic-navigation
+Reference: <https://www.gatsbyjs.com/docs/creating-dynamic-navigation>
 
 Gatsby uses GraphQL to dynamically create navigation links.
