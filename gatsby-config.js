@@ -18,6 +18,10 @@ module.exports = {
         name: 'Projects',
         link: '/projects',
       },
+      {
+        name: 'People',
+        link: '/people',
+      },
     ],
   },
   plugins: [
