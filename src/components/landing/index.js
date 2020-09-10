@@ -1,5 +1,4 @@
 export * from './Contact';
-export * from './Projects';
 export * from './GroupPhoto';
 export * from './LabIntro';
 export * from './FeaturedProject';
