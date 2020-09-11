@@ -49,3 +49,7 @@ General Project Structure Reference: <https://www.gatsbyjs.com/docs/gatsby-proje
 - `/public` *Automatically generated*. The files that are to be hosted after building
 - `/src` All code.
 - `/static` All files here will not be processed by webpack and will be copied over to the `/public` folder. [When to use the static folder](https://www.gatsbyjs.com/docs/static-folder/#adding-assets-outside-of-the-module-system)
+
+## TODO
+
+- [ ] `gatsby-canonical-urls` - for SEO. [docs](https://www.npmjs.com/package/gatsby-plugin-canonical-urls)
