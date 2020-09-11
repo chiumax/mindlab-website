@@ -9,7 +9,10 @@ import { PageWrapper, Details } from 'pages/styles';
 export default function Template({
   data, // this prop will be injected by the GraphQL query we'll write in a bit
 }) {
-  const { markdownRemark: post } = data; // data.markdownRemark holds your post data
+  // eslint-disable-next-line no-console
+  console.log('data', data);
+  const { markdownRemark } = data; // data.markdownRemark holds your post data
+  const { frontmatter, html } = markdownRemark;
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -18,8 +21,8 @@ export default function Template({
       <Header />
       <PageWrapper as={Container}>
         <Details theme={theme}>
-          <h1>{post.frontmatter.title}</h1>
-          <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
+          <h1>{frontmatter.title}</h1>
+          <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
         </Details>
       </PageWrapper>
     </Layout>
@@ -28,13 +31,11 @@ export default function Template({
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(limit: 1000) {
-      edges {
-        node {
-          frontmatter {
-            path
-          }
-        }
+    markdownRemark {
+      html
+      frontmatter {
+        path
+        title
       }
     }
   }

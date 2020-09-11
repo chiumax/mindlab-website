@@ -100,15 +100,13 @@ const Projects = ({ data }) => {
 };
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  {
     allMarkdownRemark {
       edges {
         node {
-          excerpt(pruneLength: 250)
-          id
           frontmatter {
-            title
             path
+            title
           }
         }
       }
