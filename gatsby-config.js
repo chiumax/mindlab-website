@@ -18,6 +18,10 @@ module.exports = {
         name: 'Projects',
         link: '/projects',
       },
+      {
+        name: 'People',
+        link: '/people',
+      },
     ],
   },
   plugins: [
@@ -25,6 +29,7 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-breakpoints',
     {
       resolve: 'gatsby-source-graphql',
       options: {
@@ -73,6 +78,31 @@ module.exports = {
         display: 'minimal-ui',
         icon: './static/favicon/favicon-512.png',
       },
-    }
+    },
+    // Reads files from file system. In this case, markdown files
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `project`,
+        path: `${__dirname}/src/projects`,
+      },
+    },
+    // Transforms Markdown/YAML files to HTML/JSON
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        // CommonMark mode (default: true)
+        commonmark: true,
+        // Footnotes mode (default: true)
+        footnotes: true,
+        // Pedantic mode (default: true)
+        pedantic: true,
+        // GitHub Flavored Markdown mode (default: true)
+        gfm: true,
+        // Plugins configs
+        plugins: [],
+      },
+    },
+    'gatsby-plugin-offline',
   ],
 };

@@ -1,4 +1,4 @@
-# Project Template
+# Templates
 
 The `index.js` file in this folder describes the structure of a generic Project page. This means that any change here will be reflected on all of the Project "deep dive" pages.
 
