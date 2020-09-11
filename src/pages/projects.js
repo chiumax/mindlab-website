@@ -108,6 +108,7 @@ export const pageQuery = graphql`
             path
             title
           }
+          excerpt(pruneLength: 500)
         }
       }
     }

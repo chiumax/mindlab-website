@@ -25,6 +25,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 path
                 title
               }
+              excerpt(pruneLength: 500)
             }
           }
         }
