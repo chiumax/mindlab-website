@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'providers/ThemeProvider';
 import NavbarLinks from '../NavbarLinks';
+import ToggleTheme from "../ToggleTheme";
 import { Wrapper } from './styles';
 
 const Sidebar = ({ sidebar, toggle }) => {
@@ -9,6 +10,7 @@ const Sidebar = ({ sidebar, toggle }) => {
   return (
   <Wrapper active={sidebar} onClick={toggle} theme={theme}>
     <NavbarLinks />
+    <ToggleTheme/>
   </Wrapper>
   )
 };

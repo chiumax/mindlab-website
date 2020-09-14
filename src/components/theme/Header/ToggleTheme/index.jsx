@@ -5,11 +5,12 @@ import moonIcon from 'assets/icons/moon.svg';
 import { Wrapper } from './styles';
 
 const ToggleTheme = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme, themeData } = useContext(ThemeContext);
 
   return (
     <Wrapper type="button" onClick={toggleTheme}>
-      <img src={theme === 'light' ? moonIcon : sunIcon} alt={theme} />
+      <img src={themeData === 'light' ? moonIcon : sunIcon} alt={theme} />
+      <div>yeet</div>
     </Wrapper>
   );
 };
