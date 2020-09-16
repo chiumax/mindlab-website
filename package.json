@@ -37,7 +37,6 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "devDependencies": {
-
     "babel-eslint": "^9.0.0",
     "babel-plugin-styled-components": "^1.10.6",
     "eslint": "^5.14.1",
