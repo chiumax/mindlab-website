@@ -25,7 +25,7 @@ export const Details = styled.div`
     color: ${({ theme }) =>theme.text};
 
     @media (max-width: 960px) {
-      mix-blend-mode: ${({ theme }) => (theme === 'light' ? 'unset' : 'difference')};
+      mix-blend-mode: ${({ themeData }) => (themeData === 'light' ? 'unset' : 'difference')};
     }
 
     @media (max-width: 680px) {
@@ -40,7 +40,7 @@ export const Details = styled.div`
     color: ${({ theme }) =>theme.text};
 
     @media (max-width: 960px) {
-      mix-blend-mode: ${({ theme }) => (theme === 'light' ? 'unset' : 'difference')};
+      mix-blend-mode: ${({ themeData }) => (themeData === 'light' ? 'unset' : 'difference')};
     }
 
     @media (max-width: 680px) {
@@ -55,7 +55,7 @@ export const Details = styled.div`
     color: ${({ theme })  =>theme.text};
 
     @media (max-width: 960px) {
-      mix-blend-mode: ${({ theme }) => (theme === 'light' ? 'unset' : 'difference')};
+      mix-blend-mode: ${({ themeData }) => (themeData === 'light' ? 'unset' : 'difference')};
     }
 
     @media (max-width: 680px) {
@@ -70,7 +70,7 @@ export const Details = styled.div`
     color: ${({ theme })  =>theme.text};
 
     @media (max-width: 960px) {
-      mix-blend-mode: ${({ theme }) => (theme === 'light' ? 'unset' : 'difference')};
+      mix-blend-mode: ${({ themeData }) => (themeData === 'light' ? 'unset' : 'difference')};
     }
 
     @media (max-width: 680px) {
@@ -82,7 +82,7 @@ export const Details = styled.div`
     color: ${({ theme }) =>theme.text};
 
     li {
-      : ${({ theme }) => (theme === 'light' ? '#707070' : '#e6e6e6')};
+      : ${({ theme }) =>theme.text};
     }
   }
 `;

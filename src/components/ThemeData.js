@@ -1,6 +1,6 @@
 export const lightTheme = {
-  primary:"#f5d7a8",
-  secondary:"#f1f2f4",
+  primary:"#f1f2f4",
+  secondary:"#f5d7a8",
   text:"#2a3541",
   accent:"#eb4755",
   secondaryAccent:"#4696dd"
@@ -10,21 +10,22 @@ export const darkTheme = {
   primary:"#282a2f",
   secondary:"#2a3541",
   text:"#e3e5e8",
-  accent:"#f0cd2d",
-  secondaryAccent:"#a93741"
+  accent:"#a93741",
+  secondaryAccent:"#f0cd2d",
 }
-// export const lightTheme = {
-//   primary:"#ffffff",
-//   secondary:"#ffffff",
-//   text:"#ffffff",
-//   accent:"#ffffff",
-//   secondaryAccent:"#ffffff"
-// }
+/*
+light theme
+primary - white
+secondary - yellowish
+text - grey dark blue ish
+accent - red
+secondary accent - blue
 
-// export const darkTheme = {
-//   primary:"#ffffff",
-//   secondary:"#ffffff",
-//   text:"#ffffff",
-//   accent:"#ffffff",
-//   secondaryAccent:"#ffffff"
-// }
+dark theme
+primary - black
+secondary - lighter black
+text - white
+accent - dark theme red
+secondary accent - yellow 
+
+*/

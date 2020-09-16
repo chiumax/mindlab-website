@@ -15,7 +15,7 @@ import {
 } from 'pages/styles';
 
 const Projects = ({ data }) => {
-  const { theme } = useContext(ThemeContext);
+  const { theme, themeData } = useContext(ThemeContext);
   const { edges: posts } = data.allMarkdownRemark;
   const breakpoints = useBreakpoint();
 
@@ -24,9 +24,9 @@ const Projects = ({ data }) => {
       <SEO />
       <Header />
       <PageWrapper as={Container}>
-        <Details theme={theme}>
+        <Details theme={theme, themeData}>
           <h1>Projects</h1>
-
+          {console.log(themeData)} {console.log("theme data")}
           {/*
               Not the greatest thing to do, but desktops need to
               show three columns, and mobile devices will show one
