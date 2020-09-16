@@ -45,7 +45,7 @@ const Projects = ({ data }) => {
               {posts
                 .filter(post => post.node.frontmatter.title.length > 0)
                 .map(({ node: post }) => (
-                  <ProjectCard key={post.id}>
+                  <ProjectCard key={post.id} theme={theme, themeData}>
                     <h2>
                       <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
                     </h2>

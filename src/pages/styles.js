@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
+import tw, {styled} from "twin.macro";
 
 export const PageWrapper = styled.div`
   padding: 4rem 0;
@@ -107,4 +108,15 @@ export const ProjectCardColumn = styled.div`
 
 export const ProjectCard = styled.div`
   flex: 1;
+  hover:${({ theme }) =>theme.text};
+  ${tw`bg-blue-500 text-white p-2 rounded`}
+
 `;
+
+// export const ProjectCard = styled.div.attrs({
+//   className: "md:flex bg-white rounded-lg p-6 text-purple-500 border hover:border-black"
+// })`
+//   &{
+
+//   }`
+

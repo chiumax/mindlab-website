@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Container } from 'components/common';
 import { Wrapper, Flex, Links, Details } from './styles';
 import social from './social.json';
+import { ThemeContext } from 'providers/ThemeProvider';
 
-export const Footer = () => (
+export const Footer = () => {
+  const { theme } = useContext(ThemeContext);
+  return(
   <Wrapper>
     <Flex as={Container}>
-      <Details>
-        <h2>John Doe</h2>
+      <Details theme={theme}>
+        <h2>mindlab</h2>
         <span>
           © All rights are reserved | {new Date().getFullYear()} | Made with{' '}
           <span aria-label="love" role="img">
@@ -15,7 +18,7 @@ export const Footer = () => (
           </span>{' '}
           by{' '}
           <a href="https://smakosh.com/?ref=portfolio-dev" rel="noopener noreferrer" target="_blank">
-            Smakosh
+             the mindlab gang
           </a>
         </span>
       </Details>
@@ -27,5 +30,5 @@ export const Footer = () => (
         ))}
       </Links>
     </Flex>
-  </Wrapper>
-);
+  </Wrapper>)
+};
