@@ -1,15 +1,8 @@
 [
-
-  {
-    "id": 0,
-    "name": "Github",
-    "link": "https://github.com/fwajid/mindlab_website",
-    "icon": "/icons/github.svg"
-  },
   {
     "id": 1,
-    "name": "Twitter",
-    "link": "https://twitter.com/",
-    "icon": "/icons/twitter.svg"
+    "name": "Github",
+    "link": "https://github.com/fwajid",
+    "icon": "/icons/github.svg"
   }
 ]

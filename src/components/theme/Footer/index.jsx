@@ -1,25 +1,19 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { Container } from 'components/common';
+import { ThemeContext } from 'providers/ThemeProvider';
 import { Wrapper, Flex, Links, Details } from './styles';
 import social from './social.json';
-import { ThemeContext } from 'providers/ThemeProvider';
 
-export const Footer = () => {
-  const { theme } = useContext(ThemeContext);
-  return(
+export const Footer = () => (
   <Wrapper>
     <Flex as={Container}>
-      <Details theme={theme}>
-        <h2>mindlab</h2>
+      <Details>
         <span>
-          © All rights are reserved | {new Date().getFullYear()} | Made with{' '}
-          <span aria-label="love" role="img">
-            💖
-          </span>{' '}
-          by{' '}
-          <a href="https://smakosh.com/?ref=portfolio-dev" rel="noopener noreferrer" target="_blank">
-             the mindlab gang
-          </a>
+          © {new Date().getFullYear()}{' '}
+          <a href="https://mindlab.cs.umd.edu" rel="noopener noreferrer" target="_blank">
+            Mindlab
+          </a>{' '}
+          | Built by Dale & Max
         </span>
       </Details>
       <Links>
@@ -30,5 +24,5 @@ export const Footer = () => {
         ))}
       </Links>
     </Flex>
-  </Wrapper>)
-};
+  </Wrapper>
+);
