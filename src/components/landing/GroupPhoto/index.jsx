@@ -14,9 +14,3 @@ export const GroupPhoto = () => (
     </IntroWrapper>
   </Wrapper>
 );
-
-/*
-  <Button as={AnchorLink} href="#contact">
-            Hire me
-          </Button>
-*/
