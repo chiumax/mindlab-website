@@ -25,9 +25,6 @@ export const Details = styled.div`
     font-size: 36pt;
     color: ${({ theme }) =>theme.text};
 
-    @media (max-width: 960px) {
-      mix-blend-mode: ${({ themeData }) => (themeData === 'light' ? 'unset' : 'difference')};
-    }
 
     @media (max-width: 680px) {
       font-size: 30pt;
@@ -40,9 +37,6 @@ export const Details = styled.div`
     font-weight: normal;
     color: ${({ theme }) =>theme.text};
 
-    @media (max-width: 960px) {
-      mix-blend-mode: ${({ themeData }) => (themeData === 'light' ? 'unset' : 'difference')};
-    }
 
     @media (max-width: 680px) {
       font-size: 26pt;
@@ -55,9 +49,7 @@ export const Details = styled.div`
     font-weight: normal;
     color: ${({ theme })  =>theme.text};
 
-    @media (max-width: 960px) {
-      mix-blend-mode: ${({ themeData }) => (themeData === 'light' ? 'unset' : 'difference')};
-    }
+
 
     @media (max-width: 680px) {
       font-size: 26pt;
@@ -70,9 +62,6 @@ export const Details = styled.div`
     font-weight: normal;
     color: ${({ theme })  =>theme.text};
 
-    @media (max-width: 960px) {
-      mix-blend-mode: ${({ themeData }) => (themeData === 'light' ? 'unset' : 'difference')};
-    }
 
     @media (max-width: 680px) {
       font-size: 26pt;
@@ -94,6 +83,7 @@ export const MobileProjectCardContainer = styled.div`
 `;
 
 export const DesktopProjectCardContainer = styled.div`
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -102,14 +92,15 @@ export const DesktopProjectCardContainer = styled.div`
 `;
 
 export const ProjectCardColumn = styled.div`
+${tw`space-x-16`}
   display: flex;
   flex-direction: row;
 `;
 
 export const ProjectCard = styled.div`
   flex: 1;
-  hover:${({ theme }) =>theme.text};
-  ${tw`bg-blue-500 text-white p-2 rounded`}
+ 
+  
 
 `;
 

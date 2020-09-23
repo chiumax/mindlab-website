@@ -33,9 +33,7 @@ export const Details = styled.div`
     font-size: 36pt;
     color: ${({ theme }) => theme.text};
 
-    @media (max-width: 960px) {
-      mix-blend-mode: ${({ theme }) => (theme === 'light' ? 'unset' : 'difference')};
-    }
+
 
     @media (max-width: 680px) {
       font-size: 30pt;
@@ -48,9 +46,7 @@ export const Details = styled.div`
     font-weight: normal;
     color: ${({ theme }) => (theme === 'light' ? '#707070' : '#e6e6e6')};
 
-    @media (max-width: 960px) {
-      mix-blend-mode: ${({ theme }) => (theme === 'light' ? 'unset' : 'difference')};
-    }
+
 
     @media (max-width: 680px) {
       font-size: 26pt;

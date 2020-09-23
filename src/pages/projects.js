@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { graphql, Link } from 'gatsby';
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
+import Img from "gatsby-image";
 
 import { ThemeContext } from 'providers/ThemeProvider';
 import { Container, Layout, SEO } from 'components/common';
@@ -18,6 +19,8 @@ const Projects = ({ data }) => {
   const { theme, themeData } = useContext(ThemeContext);
   const { edges: posts } = data.allMarkdownRemark;
   const breakpoints = useBreakpoint();
+
+  // let heroImg = post.frontmatter.hero.childImageSharp.fluid;
 
   return (
     <Layout>
@@ -47,6 +50,7 @@ const Projects = ({ data }) => {
                 .map(({ node: post }) => (
                   <ProjectCard key={post.id} theme={theme, themeData}>
                     <h2>
+                      <Img fluid={ post.frontmatter.hero.childImageSharp.fluid}/>
                       <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
                     </h2>
                     <p>{post.excerpt}</p>
@@ -59,8 +63,9 @@ const Projects = ({ data }) => {
                 {posts
                   .filter((v, i) => i % 3 === 0)
                   .map(({ node: post }) => (
-                    <ProjectCard key={post.id}>
+                    <ProjectCard key={post.id} theme={theme, themeData}>
                       <h2>
+                      <Img fluid={ post.frontmatter.hero.childImageSharp.fluid}/>
                         <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
                       </h2>
                       <p>{post.excerpt}</p>
@@ -71,8 +76,9 @@ const Projects = ({ data }) => {
                 {posts
                   .filter((v, i) => i % 3 === 1)
                   .map(({ node: post }) => (
-                    <ProjectCard key={post.id}>
+                    <ProjectCard key={post.id} theme={theme, themeData}>
                       <h2>
+                        <Img fluid={ post.frontmatter.hero.childImageSharp.fluid}/>
                         <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
                       </h2>
                       <p>{post.excerpt}</p>
@@ -83,8 +89,9 @@ const Projects = ({ data }) => {
                 {posts
                   .filter((v, i) => i % 3 === 2)
                   .map(({ node: post }) => (
-                    <ProjectCard key={post.id}>
+                    <ProjectCard key={post.id} theme={theme, themeData}>
                       <h2>
+                      <Img fluid={ post.frontmatter.hero.childImageSharp.fluid}/>
                         <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
                       </h2>
                       <p>{post.excerpt}</p>
@@ -107,6 +114,13 @@ export const pageQuery = graphql`
           frontmatter {
             path
             title
+            hero {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           excerpt(pruneLength: 500)
         }
