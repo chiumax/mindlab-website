@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { graphql } from 'gatsby';
+import Img from "gatsby-image"
 
 import { ThemeContext } from 'providers/ThemeProvider';
 import { Container, Layout, SEO } from 'components/common';
@@ -15,12 +16,15 @@ export default function Template({
   const { frontmatter, html } = markdownRemark;
   const { theme } = useContext(ThemeContext);
 
+  let heroImg = frontmatter.hero.childImageSharp.fluid;
+
   return (
     <Layout>
       <SEO />
       <Header />
       <PageWrapper as={Container}>
         <Details theme={theme}>
+          <Img fluid={heroImg}/>
           <h1>{frontmatter.title}</h1>
           <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
         </Details>
@@ -36,6 +40,13 @@ export const pageQuery = graphql`
       frontmatter {
         path
         title
+        hero {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

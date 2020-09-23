@@ -1,6 +1,7 @@
 ---
 path: "/project-3"
 title: "Project 3"
+hero: "./hero.png"
 ---
 
 // TODO: Faizan/Mara to fillout
