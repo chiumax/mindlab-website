@@ -1,5 +1,5 @@
 // import styled from 'styled-components';
-import tw, {styled} from "twin.macro";
+import tw, { styled } from 'twin.macro';
 
 export const PageWrapper = styled.div`
   padding: 4rem 0;
@@ -23,7 +23,7 @@ export const Details = styled.div`
   h1 {
     margin-bottom: 2rem;
     font-size: 36pt;
-    color: ${({ theme }) =>theme.text};
+    color: ${({ theme }) => theme.text};
 
 
     @media (max-width: 680px) {
@@ -35,7 +35,7 @@ export const Details = styled.div`
     margin-bottom: 2.5rem;
     font-size: 28pt;
     font-weight: normal;
-    color: ${({ theme }) =>theme.text};
+    color: ${({ theme }) => theme.text};
 
 
     @media (max-width: 680px) {
@@ -47,7 +47,7 @@ export const Details = styled.div`
     margin-bottom: 2.5rem;
     font-size: 24pt;
     font-weight: normal;
-    color: ${({ theme })  =>theme.text};
+    color: ${({ theme }) => theme.text};
 
 
 
@@ -60,7 +60,7 @@ export const Details = styled.div`
     margin-bottom: 2.5rem;
     font-size: 32pt;
     font-weight: normal;
-    color: ${({ theme })  =>theme.text};
+    color: ${({ theme }) => theme.text};
 
 
     @media (max-width: 680px) {
@@ -69,21 +69,20 @@ export const Details = styled.div`
   }
 
   ul {
-    color: ${({ theme }) =>theme.text};
+    color: ${({ theme }) => theme.text};
 
     li {
-      : ${({ theme }) =>theme.text};
+      : ${({ theme }) => theme.text};
     }
   }
 `;
 
-export const MobileProjectCardContainer = styled.div`
+export const ResponsiveMobileContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const DesktopProjectCardContainer = styled.div`
-
+export const ResponsiveDesktopContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -91,23 +90,12 @@ export const DesktopProjectCardContainer = styled.div`
   align-content: space-between;
 `;
 
-export const ProjectCardColumn = styled.div`
-${tw`space-x-16`}
+export const ResponsiveColumn = styled.div`
   display: flex;
   flex-direction: row;
+  ${tw`space-x-16`}
 `;
 
 export const ProjectCard = styled.div`
   flex: 1;
- 
-  
-
 `;
-
-// export const ProjectCard = styled.div.attrs({
-//   className: "md:flex bg-white rounded-lg p-6 text-purple-500 border hover:border-black"
-// })`
-//   &{
-
-//   }`
-

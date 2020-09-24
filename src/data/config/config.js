@@ -1,9 +1,9 @@
 module.exports = {
-  defaultTitle: 'Mindlab',
+  defaultTitle: 'MIND Lab',
   logo: 'https://portfolio.smakosh.com/favicon/favicon-512.png',
-  author: 'Mindlab',
+  author: 'MIND Lab',
   url: 'https://portfolio.smakosh.com',
-  legalName: 'Mindlab',
+  legalName: 'MIND Lab',
   defaultDescription: 'I’m John and I’m a Backend & Devops engineer!',
   socialLinks: {
     twitter: 'http://www.twitter.com/smakosh',

@@ -1,6 +1,6 @@
-# Mindlab Website
+# MIND Lab Website
 
-UMD CS MindLab website development repo
+UMD CS MIND Lab website development repo
 
 ## Setup for Contributors
 

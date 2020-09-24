@@ -1,0 +1,245 @@
+[
+  {
+    "id": 1,
+    "name": "Professor Ashok Agrawala",
+    "picture": "/photos/Ashok Agrawala.png",
+    "role": "Faculty",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Professor Nirupam Roy",
+    "picture": "/photos/icon-512x512.png",
+    "role": "Faculty",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Mara Cai",
+    "picture": "/photos/Mara Cai.png",
+    "role": "Research Staff",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Faizan Wajid",
+    "picture": "/photos/Faizan Wajid.png",
+    "role": "Research Staff",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Anvitha Bhatt",
+    "picture": "/photos/Anvitha Bhatt.png",
+    "role": "Graduate Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Shramay Palta",
+    "picture": "/photos/Shramay Palta.png",
+    "role": "Graduate Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Tom Chen",
+    "picture": "/photos/Tom Chen.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Max Chiu",
+    "picture": "/photos/Max Chiu.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Zhaoyuan (Mike) Deng",
+    "picture": "/photos/Zhaoyuan Deng.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Aaron Ge",
+    "picture": "/photos/Aaron Ge.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Kalonji Harrington",
+    "picture": "/photos/Kalonji Harrington.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Haoran (Jason) Li",
+    "picture": "/photos/Haoran Li.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Geng (Leo) Liu",
+    "picture": "/photos/Geng Liu.jpg",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Michio Morizono",
+    "picture": "/photos/Michio Morizono.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Abbas Paryavi",
+    "picture": "/photos/Abbas Paryavi.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Ethan Remsberg",
+    "picture": "/photos/Ethan Remsberg.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Atul Shaurya",
+    "picture": "/photos/icon-512x512.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Sepehr Tabaeizadeh",
+    "picture": "/photos/Sepehr Tabaeizadeh.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Jason Tan",
+    "picture": "/photos/Jason Tan.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Sanjali Yadav",
+    "picture": "/photos/icon-512x512.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Abhinav Yedla",
+    "picture": "/photos/Abhinav Yedla.png",
+    "role": "Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Sam Attwood",
+    "picture": "/photos/icon-512x512.png",
+    "role": "Associate",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Dale Chang",
+    "picture": "/photos/Dale.png",
+    "role": "Associate",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Yehuda Katz",
+    "picture": "/photos/icon-512x512.png",
+    "role": "Graduate Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Moshe Katz",
+    "picture": "/photos/icon-512x512.png",
+    "role": "Graduate Student",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Andrew Pachulski",
+    "picture": "/photos/icon-512x512.png",
+    "role": "Associate",
+    "semestersActive": [
+      "Fall 2020"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Brian Xiang",
+    "picture": "/photos/icon-512x512.png",
+    "role": "Student",
+    "semestersActive": [
+      "Summer 2020"
+    ]
+  }
+]

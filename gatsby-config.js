@@ -1,4 +1,4 @@
-const config = require('./src/data/config');
+const config = require('./src/data/config/config');
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -87,6 +87,14 @@ module.exports = {
         path: `${__dirname}/src/projects`,
       },
     },
+    // Reads files from file system. In this case, json files from `src/data/people`
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `people`,
+        path: `${__dirname}/src/data/people`,
+      },
+    },
     // Transforms Markdown/YAML files to HTML/JSON
     {
       resolve: `gatsby-transformer-remark`,
@@ -107,12 +115,13 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-             
             },
           },
         ],
       },
     },
     'gatsby-plugin-offline',
+    // allows reading local JSON data--to be used to query the people.json data as GraphQL
+    'gatsby-transformer-json',
   ],
 };
