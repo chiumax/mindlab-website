@@ -1,4 +1,5 @@
 import React from 'react';
+import Img from 'gatsby-image';
 
 import tw, { styled, css } from 'twin.macro';
 
@@ -31,12 +32,16 @@ export const Portrait = styled.div`
  *
  * TODO: Make responsive
  */
-export const Person = ({ name, picture }) => (
-  <div className="person">
-    <Portrait>
-      <img src={picture} alt={name}></img>
-    </Portrait>
+export const Person = ({ name, img }) => {
+  if (!img || (!img.fluid && !img.fixed)) {
+    console.log(`${name} does not have the correct image`);
+  }
 
-    <p>{name}</p>
-  </div>
-);
+  return (
+    <div className="person">
+      <Img fluid={img} alt={name}></Img>
+
+      <p>{name}</p>
+    </div>
+  );
+};

@@ -95,6 +95,14 @@ module.exports = {
         path: `${__dirname}/src/data/people`,
       },
     },
+    // Reads files from file system. In this case, image files from `src/photos`
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `people`,
+        path: `${__dirname}/src/data/photos`,
+      },
+    },
     // Transforms Markdown/YAML files to HTML/JSON
     {
       resolve: `gatsby-transformer-remark`,

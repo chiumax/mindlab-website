@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import tw, { css } from 'twin.macro';
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
 import { ThemeContext } from 'providers/ThemeProvider';
 import { Container, Layout, SEO } from 'components/common';
 import { Header } from 'components/theme';
-import { Person } from 'components/people/Person';
 import { ResponsiveMobileContainer, ResponsiveDesktopContainer, ResponsiveColumn } from 'pages/styles';
 import { PageWrapper, Details } from './styles';
 
@@ -38,32 +38,35 @@ export const peopleTitle = css`
  * 2. Add/update data to the `people.json` file
  * 3. Update the "current semester" value
  */
-const People = ({ data }) => {
+const People = () => {
+  const data = useStaticQuery(graphql`
+    query PeopleQuery {
+      allFile(filter: { name: { eq: "people" } }) {
+        edges {
+          node {
+            childrenPeopleJson {
+              id
+              name
+              picture {
+                childImageSharp {
+                  fixed(width: 220) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
+              role
+              semestersActive
+            }
+          }
+        }
+      }
+    }
+  `);
   const { theme } = useContext(ThemeContext);
   const people = data.allFile.edges[0].node.childrenPeopleJson;
-  // const faculty = people
-  //   .filter(({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Faculty')
-  //   .map(({ id, name, picture }) => <Person key={id} name={name} picture={picture}></Person>);
-  // console.log('faculty[0]', faculty[0]);
-  const researchStaff = people
-    .filter(({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Research Staff')
-    .map(({ id, name, picture }) => <Person key={id} name={name} picture={picture}></Person>);
-  const graduateStudents = people
-    .filter(({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Graduate Student')
-    .map(({ id, name, picture }) => <Person key={id} name={name} picture={picture}></Person>);
   const students = people
     .filter(({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Student')
-    .map(({ id, name, picture }) => (
-      <p key={id} name={name} picture={picture}>
-        {name}
-      </p>
-    ));
-  const associates = people
-    .filter(({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Associate')
-    .map(({ id, name, picture }) => <Person key={id} name={name} picture={picture}></Person>);
-  const previousStudents = people
-    .filter(({ semestersActive }) => !semestersActive.includes(currentSemester))
-    .map(({ id, name }) => <li key={id}>{name}</li>);
+    .map(({ id, name, picture }) => <p key={id}>{name}</p>);
   const breakpoints = useBreakpoint();
 
   return (
@@ -81,7 +84,11 @@ const People = ({ data }) => {
               {people
                 .filter(({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Faculty')
                 .map(({ id, name, picture }) => (
-                  <Person key={id} name={name} picture={picture}></Person>
+                  <div key={id}>
+                    <Img fixed={picture.childImageSharp.fixed} />
+
+                    <h6>{name}</h6>
+                  </div>
                 ))}
             </section>
 
@@ -90,7 +97,17 @@ const People = ({ data }) => {
                 <span css={peopleTitle}>Research Staff</span>
               </h2>
 
-              {researchStaff}
+              {people
+                .filter(
+                  ({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Research Staff'
+                )
+                .map(({ id, name, picture }) => (
+                  <div key={id}>
+                    <Img fixed={picture.childImageSharp.fixed} />
+
+                    <h6>{name}</h6>
+                  </div>
+                ))}
             </section>
 
             <section>
@@ -100,7 +117,18 @@ const People = ({ data }) => {
                 </span>
               </h2>
 
-              {graduateStudents}
+              {people
+                .filter(
+                  ({ role, semestersActive }) =>
+                    semestersActive.includes(currentSemester) && role === 'Graduate Student'
+                )
+                .map(({ id, name, picture }) => (
+                  <div key={id}>
+                    <Img fixed={picture.childImageSharp.fixed} />
+
+                    <h6>{name}</h6>
+                  </div>
+                ))}
             </section>
 
             <section>
@@ -111,7 +139,15 @@ const People = ({ data }) => {
               </h2>
 
               {breakpoints.xs || breakpoints.sm ? (
-                <ResponsiveMobileContainer>{students}</ResponsiveMobileContainer>
+                <ResponsiveMobileContainer>
+                  {people
+                    .filter(
+                      ({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Student'
+                    )
+                    .map(({ id, name }) => (
+                      <h6 key={id}>{name}</h6>
+                    ))}
+                </ResponsiveMobileContainer>
               ) : (
                 <ResponsiveDesktopContainer>
                   <ResponsiveColumn>{students.filter((v, i) => i % 3 === 0)}</ResponsiveColumn>
@@ -126,7 +162,17 @@ const People = ({ data }) => {
                 <span css={peopleTitle}>Associates</span>
               </h2>
 
-              {associates}
+              {people
+                .filter(
+                  ({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Associate'
+                )
+                .map(({ id, name, picture }) => (
+                  <div key={id}>
+                    <Img fixed={picture.childImageSharp.fixed} />
+
+                    <h6>{name}</h6>
+                  </div>
+                ))}
             </section>
 
             <section>
@@ -134,7 +180,13 @@ const People = ({ data }) => {
                 <span css={peopleTitle}>Previous Students</span>
               </h2>
 
-              <ul>{previousStudents}</ul>
+              <ul>
+                {people
+                  .filter(({ semestersActive }) => !semestersActive.includes(currentSemester))
+                  .map(({ id, name }) => (
+                    <li key={id}>{name}</li>
+                  ))}
+              </ul>
             </section>
           </article>
         </Details>
@@ -142,23 +194,5 @@ const People = ({ data }) => {
     </Layout>
   );
 };
-
-export const pageQuery = graphql`
-  {
-    allFile(filter: { name: { eq: "people" } }) {
-      edges {
-        node {
-          childrenPeopleJson {
-            id
-            name
-            picture
-            role
-            semestersActive
-          }
-        }
-      }
-    }
-  }
-`;
 
 export default People;

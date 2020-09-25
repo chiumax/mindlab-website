@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Professor Ashok Agrawala",
-    "picture": "/photos/Ashok Agrawala.png",
+    "picture": "../photos/ashok-agrawala.png",
     "role": "Faculty",
     "semestersActive": [
       "Fall 2020"
@@ -11,7 +11,7 @@
   {
     "id": 2,
     "name": "Professor Nirupam Roy",
-    "picture": "/photos/icon-512x512.png",
+    "picture": "../photos/nirupam-roy.png",
     "role": "Faculty",
     "semestersActive": [
       "Fall 2020"
@@ -20,7 +20,7 @@
   {
     "id": 3,
     "name": "Mara Cai",
-    "picture": "/photos/Mara Cai.png",
+    "picture": "../photos/mara-cai.png",
     "role": "Research Staff",
     "semestersActive": [
       "Fall 2020"
@@ -29,7 +29,7 @@
   {
     "id": 4,
     "name": "Faizan Wajid",
-    "picture": "/photos/Faizan Wajid.png",
+    "picture": "../photos/faizan-wajid.png",
     "role": "Research Staff",
     "semestersActive": [
       "Fall 2020"
@@ -38,7 +38,7 @@
   {
     "id": 5,
     "name": "Anvitha Bhatt",
-    "picture": "/photos/Anvitha Bhatt.png",
+    "picture": "../photos/anvitha-bhatt.png",
     "role": "Graduate Student",
     "semestersActive": [
       "Fall 2020"
@@ -47,7 +47,7 @@
   {
     "id": 6,
     "name": "Shramay Palta",
-    "picture": "/photos/Shramay Palta.png",
+    "picture": "../photos/shramay-palta.png",
     "role": "Graduate Student",
     "semestersActive": [
       "Fall 2020"
@@ -56,7 +56,7 @@
   {
     "id": 7,
     "name": "Tom Chen",
-    "picture": "/photos/Tom Chen.png",
+    "picture": "../photos/tom-chen.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -65,7 +65,7 @@
   {
     "id": 8,
     "name": "Max Chiu",
-    "picture": "/photos/Max Chiu.png",
+    "picture": "../photos/max-chiu.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -74,7 +74,7 @@
   {
     "id": 9,
     "name": "Zhaoyuan (Mike) Deng",
-    "picture": "/photos/Zhaoyuan Deng.png",
+    "picture": "../photos/zhaoyuan-deng.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -83,7 +83,7 @@
   {
     "id": 10,
     "name": "Aaron Ge",
-    "picture": "/photos/Aaron Ge.png",
+    "picture": "../photos/aaron-ge.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -92,7 +92,7 @@
   {
     "id": 11,
     "name": "Kalonji Harrington",
-    "picture": "/photos/Kalonji Harrington.png",
+    "picture": "../photos/kalonji-harrington.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -101,7 +101,7 @@
   {
     "id": 12,
     "name": "Haoran (Jason) Li",
-    "picture": "/photos/Haoran Li.png",
+    "picture": "../photos/haoran-li.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -110,7 +110,7 @@
   {
     "id": 13,
     "name": "Geng (Leo) Liu",
-    "picture": "/photos/Geng Liu.jpg",
+    "picture": "../photos/geng-liu.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -119,7 +119,7 @@
   {
     "id": 14,
     "name": "Michio Morizono",
-    "picture": "/photos/Michio Morizono.png",
+    "picture": "../photos/michio-morizono.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -128,7 +128,7 @@
   {
     "id": 15,
     "name": "Abbas Paryavi",
-    "picture": "/photos/Abbas Paryavi.png",
+    "picture": "../photos/abbas-paryavi.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -137,7 +137,7 @@
   {
     "id": 16,
     "name": "Ethan Remsberg",
-    "picture": "/photos/Ethan Remsberg.png",
+    "picture": "../photos/ethan-remsberg.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -146,7 +146,7 @@
   {
     "id": 17,
     "name": "Atul Shaurya",
-    "picture": "/photos/icon-512x512.png",
+    "picture": "../photos/icon-512x512.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -155,7 +155,7 @@
   {
     "id": 18,
     "name": "Sepehr Tabaeizadeh",
-    "picture": "/photos/Sepehr Tabaeizadeh.png",
+    "picture": "../photos/sepehr-tabaeizadeh.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -164,7 +164,7 @@
   {
     "id": 19,
     "name": "Jason Tan",
-    "picture": "/photos/Jason Tan.png",
+    "picture": "../photos/jason-tan.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -173,7 +173,7 @@
   {
     "id": 20,
     "name": "Sanjali Yadav",
-    "picture": "/photos/icon-512x512.png",
+    "picture": "../photos/icon-512x512.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -182,7 +182,7 @@
   {
     "id": 21,
     "name": "Abhinav Yedla",
-    "picture": "/photos/Abhinav Yedla.png",
+    "picture": "../photos/abhinav-yedla.png",
     "role": "Student",
     "semestersActive": [
       "Fall 2020"
@@ -191,7 +191,7 @@
   {
     "id": 22,
     "name": "Sam Attwood",
-    "picture": "/photos/icon-512x512.png",
+    "picture": "../photos/icon-512x512.png",
     "role": "Associate",
     "semestersActive": [
       "Fall 2020"
@@ -200,7 +200,7 @@
   {
     "id": 23,
     "name": "Dale Chang",
-    "picture": "/photos/Dale.png",
+    "picture": "../photos/dale-chang.png",
     "role": "Associate",
     "semestersActive": [
       "Fall 2020"
@@ -209,7 +209,7 @@
   {
     "id": 24,
     "name": "Yehuda Katz",
-    "picture": "/photos/icon-512x512.png",
+    "picture": "../photos/yehuda-katz.png",
     "role": "Graduate Student",
     "semestersActive": [
       "Fall 2020"
@@ -218,7 +218,7 @@
   {
     "id": 27,
     "name": "Moshe Katz",
-    "picture": "/photos/icon-512x512.png",
+    "picture": "../photos/moshe-katz.png",
     "role": "Graduate Student",
     "semestersActive": [
       "Fall 2020"
@@ -227,7 +227,7 @@
   {
     "id": 25,
     "name": "Andrew Pachulski",
-    "picture": "/photos/icon-512x512.png",
+    "picture": "../photos/icon-512x512.png",
     "role": "Associate",
     "semestersActive": [
       "Fall 2020"
@@ -236,7 +236,7 @@
   {
     "id": 26,
     "name": "Brian Xiang",
-    "picture": "/photos/icon-512x512.png",
+    "picture": "../photos/icon-512x512.png",
     "role": "Student",
     "semestersActive": [
       "Summer 2020"
