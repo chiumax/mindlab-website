@@ -9,7 +9,7 @@ export const GroupPhoto = () => (
     <Header />
     <IntroWrapper as={Container}>
       <Thumbnail>
-        <img src={wireframeImage} alt="Mindlab UMD CS Dept Group" />
+        <img src={wireframeImage} alt="MIND Lab UMD CS Dept Group" />
       </Thumbnail>
     </IntroWrapper>
   </Wrapper>

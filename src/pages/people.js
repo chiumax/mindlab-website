@@ -1,12 +1,108 @@
 import React, { useContext } from 'react';
+import tw, { css } from 'twin.macro';
+import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
+import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
 import { ThemeContext } from 'providers/ThemeProvider';
 import { Container, Layout, SEO } from 'components/common';
 import { Header } from 'components/theme';
+import { ResponsiveMobileContainer, ResponsiveDesktopContainer, ResponsiveColumn } from 'pages/styles';
 import { PageWrapper, Details } from './styles';
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    Modify this value to change the current semester
+* * * * * * * * * * * * * * * * * * * * * * * * * * * */
+const currentSemester = 'Fall 2020';
+
+// Styles
+// TODO: refactor how styles are handled. Maybe have a `common` folder/file
+export const italicText = css`
+  ${tw`italic`}
+`;
+
+const peopleSection = css`
+  ${tw`my-8`}
+`;
+
+const personContainer = css`
+  ${tw`flex flex-col items-center `}
+`;
+
+export const peopleTitleHeaderContainer = css`
+  ${tw`flex flex-row my-16`}
+`;
+
+export const peopleTitleHeaderLine = css`
+  ${tw`flex flex-grow border self-center mx-4 border-gray-400`}
+`;
+
+export const peopleTitleHeader = css`
+  ${tw`mb-0`}
+`;
+
+export const peopleTitle = css`
+  ${tw`text-base font-semibold`}
+`;
+
+export const personRow = css`
+  ${tw`flex flex-row gap-8`}
+`;
+
+/**
+ * Creates a window to limit the visible area of inner elements
+ */
+export const portraitStyle = css`
+  height: 120px;
+  width: 220px;
+  overflow: hidden;
+  ${tw`flex justify-center items-center`}
+`;
+
+const placardStyle = css`
+  width: 250px;
+  ${tw`my-2 flex flex-row justify-center`}
+`;
+
+/**
+ * Uses the following article to query data from a JSON file as GraphQL.
+ * https://itnext.io/reading-data-from-a-json-file-with-gatsby-graphql-572b18ab98a
+ * This reduces the amount of hand-editing that a maintainer must do in order
+ * to update the website. Ideally, the only things that the maintainer would have to do are:
+ * 1. "Upload" a photo
+ * 2. Add/update data to the `people.json` file
+ * 3. Update the "current semester" value
+ */
 const People = () => {
+  const data = useStaticQuery(graphql`
+    query PeopleQuery {
+      allFile(filter: { name: { eq: "people" } }) {
+        edges {
+          node {
+            childrenPeopleJson {
+              id
+              name
+              picture {
+                childImageSharp {
+                  fixed(width: 220) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
+              role
+              semestersActive
+            }
+          }
+        }
+      }
+    }
+  `);
   const { theme } = useContext(ThemeContext);
+  const people = data.allFile.edges[0].node.childrenPeopleJson;
+  const students = people
+    .filter(({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Student')
+    .map(({ id, name }) => <p key={id}>{name}</p>);
+  const breakpoints = useBreakpoint();
 
   return (
     <Layout>
@@ -14,57 +110,167 @@ const People = () => {
       <Header />
       <PageWrapper as={Container}>
         <Details theme={theme}>
-          <h1>People</h1>
+          <article>
+            <section className="people-section" css={peopleSection}>
+              <div className="people-title-header-container" css={peopleTitleHeaderContainer}>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+                <div style={{ marginBottom: 0 }} css={peopleTitle}>
+                  Faculty
+                </div>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+              </div>
 
-          <section>
-            <h2>Professors</h2>
+              <div css={personRow}>
+                {people
+                  .filter(
+                    ({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Faculty'
+                  )
+                  .map(({ id, name, picture }) => (
+                    <div key={id} className="person" css={personContainer}>
+                      <div css={portraitStyle}>
+                        <Img fixed={picture.childImageSharp.fixed} />
+                      </div>
 
-            <h3>Professor Agrawala</h3>
-          </section>
+                      <div className="placard" css={placardStyle}>
+                        <h6>{name}</h6>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </section>
 
-          <section>
-            <h3>Researchers</h3>
+            <section className="people-section" css={peopleSection}>
+              <div className="people-title-header-container" css={peopleTitleHeaderContainer}>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+                <div style={{ marginBottom: 0 }} css={peopleTitle}>
+                  Research Staff
+                </div>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+              </div>
 
-            <ul>
-              <li>Mara Cai</li>
-            </ul>
-          </section>
+              <div css={personRow}>
+                {people
+                  .filter(
+                    ({ role, semestersActive }) =>
+                      semestersActive.includes(currentSemester) && role === 'Research Staff'
+                  )
+                  .map(({ id, name, picture }) => (
+                    <div key={id} className="person" css={personContainer}>
+                      <div css={portraitStyle}>
+                        <Img fixed={picture.childImageSharp.fixed} />
+                      </div>
 
-          <section>
-            <h3>Grad Students</h3>
+                      <div className="placard" css={placardStyle}>
+                        <h6>{name}</h6>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </section>
 
-            <ul>
-              <li>Faizan Wajid</li>
-            </ul>
-          </section>
+            <section className="people-section" css={peopleSection}>
+              <div className="people-title-header-container" css={peopleTitleHeaderContainer}>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+                <div style={{ marginBottom: 0 }} css={peopleTitle}>
+                  Graduate Students <span css={italicText}>({currentSemester})</span>
+                </div>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+              </div>
 
-          <section>
-            <h3>TAs</h3>
-          </section>
+              <div css={personRow}>
+                {people
+                  .filter(
+                    ({ role, semestersActive }) =>
+                      semestersActive.includes(currentSemester) && role === 'Graduate Student'
+                  )
+                  .map(({ id, name, picture }) => (
+                    <div key={id} className="person" css={personContainer}>
+                      <div css={portraitStyle}>
+                        <Img fixed={picture.childImageSharp.fixed} />
+                      </div>
 
-          <section>
-            <h3>Current Undergraduate Students</h3>
-          </section>
+                      <div className="placard" css={placardStyle}>
+                        <h6>{name}</h6>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </section>
 
-          <section>
-            <h3>Current Interns</h3>
+            <section className="people-section" css={peopleSection}>
+              <div className="people-title-header-container" css={peopleTitleHeaderContainer}>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+                <div style={{ marginBottom: 0 }} css={peopleTitle}>
+                  Students <span css={italicText}>({currentSemester})</span>
+                </div>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+              </div>
 
-            <ul>
-              <li>Max Chiu</li>
-            </ul>
-          </section>
+              {breakpoints.xs || breakpoints.sm ? (
+                <ResponsiveMobileContainer>
+                  {people
+                    .filter(
+                      ({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Student'
+                    )
+                    .map(({ id, name }) => (
+                      <h6 key={id}>{name}</h6>
+                    ))}
+                </ResponsiveMobileContainer>
+              ) : (
+                <ResponsiveDesktopContainer>
+                  <ResponsiveColumn>{students.filter((v, i) => i % 3 === 0)}</ResponsiveColumn>
+                  <ResponsiveColumn>{students.filter((v, i) => i % 3 === 1)}</ResponsiveColumn>
+                  <ResponsiveColumn>{students.filter((v, i) => i % 3 === 2)}</ResponsiveColumn>
+                </ResponsiveDesktopContainer>
+              )}
+            </section>
 
-          <section>
-            <h3>Past Students</h3>
-          </section>
+            <section className="people-section" css={peopleSection}>
+              <div className="people-title-header-container" css={peopleTitleHeaderContainer}>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+                <div style={{ marginBottom: 0 }} css={peopleTitle}>
+                  Associates
+                </div>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+              </div>
 
-          <section>
-            <h3>Past Interns</h3>
+              <div css={personRow}>
+                {people
+                  .filter(
+                    ({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Associate'
+                  )
+                  .map(({ id, name, picture }) => (
+                    <div key={id} className="person" css={personContainer}>
+                      <div css={portraitStyle}>
+                        <Img fixed={picture.childImageSharp.fixed} />
+                      </div>
 
-            <ul>
-              <li>Brian Xiang</li>
-            </ul>
-          </section>
+                      <div className="placard" css={placardStyle}>
+                        <h6>{name}</h6>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </section>
+
+            <section className="people-section" css={peopleSection}>
+              <div className="people-title-header-container" css={peopleTitleHeaderContainer}>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+                <h2>
+                  <span css={peopleTitle}>Previous Students</span>
+                </h2>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+              </div>
+
+              <ul>
+                {people
+                  .filter(({ semestersActive }) => !semestersActive.includes(currentSemester))
+                  .map(({ id, name }) => (
+                    <li key={id}>{name}</li>
+                  ))}
+              </ul>
+            </section>
+          </article>
         </Details>
       </PageWrapper>
     </Layout>
