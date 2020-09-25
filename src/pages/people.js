@@ -21,12 +21,47 @@ export const italicText = css`
   ${tw`italic`}
 `;
 
-export const PersonRow = css`
-  ${tw`flex flex-row`}
+const peopleSection = css`
+  ${tw`my-8`}
+`;
+
+const personContainer = css`
+  ${tw`flex flex-col items-center `}
+`;
+
+export const peopleTitleHeaderContainer = css`
+  ${tw`flex flex-row my-16`}
+`;
+
+export const peopleTitleHeaderLine = css`
+  ${tw`flex flex-grow border self-center mx-4 border-gray-400`}
+`;
+
+export const peopleTitleHeader = css`
+  ${tw`mb-0`}
 `;
 
 export const peopleTitle = css`
   ${tw`text-base font-semibold`}
+`;
+
+export const personRow = css`
+  ${tw`flex flex-row gap-8`}
+`;
+
+/**
+ * Creates a window to limit the visible area of inner elements
+ */
+export const portraitStyle = css`
+  height: 120px;
+  width: 220px;
+  overflow: hidden;
+  ${tw`flex justify-center items-center`}
+`;
+
+const placardStyle = css`
+  width: 250px;
+  ${tw`my-2 flex flex-row justify-center`}
 `;
 
 /**
@@ -66,7 +101,7 @@ const People = () => {
   const people = data.allFile.edges[0].node.childrenPeopleJson;
   const students = people
     .filter(({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Student')
-    .map(({ id, name, picture }) => <p key={id}>{name}</p>);
+    .map(({ id, name }) => <p key={id}>{name}</p>);
   const breakpoints = useBreakpoint();
 
   return (
@@ -76,67 +111,100 @@ const People = () => {
       <PageWrapper as={Container}>
         <Details theme={theme}>
           <article>
-            <section>
-              <h2>
-                <span css={peopleTitle}>Faculty</span>
-              </h2>
+            <section className="people-section" css={peopleSection}>
+              <div className="people-title-header-container" css={peopleTitleHeaderContainer}>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+                <div style={{ marginBottom: 0 }} css={peopleTitle}>
+                  Faculty
+                </div>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+              </div>
 
-              {people
-                .filter(({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Faculty')
-                .map(({ id, name, picture }) => (
-                  <div key={id}>
-                    <Img fixed={picture.childImageSharp.fixed} />
+              <div css={personRow}>
+                {people
+                  .filter(
+                    ({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Faculty'
+                  )
+                  .map(({ id, name, picture }) => (
+                    <div key={id} className="person" css={personContainer}>
+                      <div css={portraitStyle}>
+                        <Img fixed={picture.childImageSharp.fixed} />
+                      </div>
 
-                    <h6>{name}</h6>
-                  </div>
-                ))}
+                      <div className="placard" css={placardStyle}>
+                        <h6>{name}</h6>
+                      </div>
+                    </div>
+                  ))}
+              </div>
             </section>
 
-            <section>
-              <h2>
-                <span css={peopleTitle}>Research Staff</span>
-              </h2>
+            <section className="people-section" css={peopleSection}>
+              <div className="people-title-header-container" css={peopleTitleHeaderContainer}>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+                <div style={{ marginBottom: 0 }} css={peopleTitle}>
+                  Research Staff
+                </div>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+              </div>
 
-              {people
-                .filter(
-                  ({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Research Staff'
-                )
-                .map(({ id, name, picture }) => (
-                  <div key={id}>
-                    <Img fixed={picture.childImageSharp.fixed} />
+              <div css={personRow}>
+                {people
+                  .filter(
+                    ({ role, semestersActive }) =>
+                      semestersActive.includes(currentSemester) && role === 'Research Staff'
+                  )
+                  .map(({ id, name, picture }) => (
+                    <div key={id} className="person" css={personContainer}>
+                      <div css={portraitStyle}>
+                        <Img fixed={picture.childImageSharp.fixed} />
+                      </div>
 
-                    <h6>{name}</h6>
-                  </div>
-                ))}
+                      <div className="placard" css={placardStyle}>
+                        <h6>{name}</h6>
+                      </div>
+                    </div>
+                  ))}
+              </div>
             </section>
 
-            <section>
-              <h2>
-                <span css={peopleTitle}>
+            <section className="people-section" css={peopleSection}>
+              <div className="people-title-header-container" css={peopleTitleHeaderContainer}>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+                <div style={{ marginBottom: 0 }} css={peopleTitle}>
                   Graduate Students <span css={italicText}>({currentSemester})</span>
-                </span>
-              </h2>
+                </div>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+              </div>
 
-              {people
-                .filter(
-                  ({ role, semestersActive }) =>
-                    semestersActive.includes(currentSemester) && role === 'Graduate Student'
-                )
-                .map(({ id, name, picture }) => (
-                  <div key={id}>
-                    <Img fixed={picture.childImageSharp.fixed} />
+              <div css={personRow}>
+                {people
+                  .filter(
+                    ({ role, semestersActive }) =>
+                      semestersActive.includes(currentSemester) && role === 'Graduate Student'
+                  )
+                  .map(({ id, name, picture }) => (
+                    <div key={id} className="person" css={personContainer}>
+                      <div css={portraitStyle}>
+                        <Img fixed={picture.childImageSharp.fixed} />
+                      </div>
 
-                    <h6>{name}</h6>
-                  </div>
-                ))}
+                      <div className="placard" css={placardStyle}>
+                        <h6>{name}</h6>
+                      </div>
+                    </div>
+                  ))}
+              </div>
             </section>
 
-            <section>
-              <h2>
-                <span css={peopleTitle}>
+            <section className="people-section" css={peopleSection}>
+              <div className="people-title-header-container" css={peopleTitleHeaderContainer}>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+                <div style={{ marginBottom: 0 }} css={peopleTitle}>
                   Students <span css={italicText}>({currentSemester})</span>
-                </span>
-              </h2>
+                </div>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+              </div>
 
               {breakpoints.xs || breakpoints.sm ? (
                 <ResponsiveMobileContainer>
@@ -157,28 +225,42 @@ const People = () => {
               )}
             </section>
 
-            <section>
-              <h2>
-                <span css={peopleTitle}>Associates</span>
-              </h2>
+            <section className="people-section" css={peopleSection}>
+              <div className="people-title-header-container" css={peopleTitleHeaderContainer}>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+                <div style={{ marginBottom: 0 }} css={peopleTitle}>
+                  Associates
+                </div>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+              </div>
 
-              {people
-                .filter(
-                  ({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Associate'
-                )
-                .map(({ id, name, picture }) => (
-                  <div key={id}>
-                    <Img fixed={picture.childImageSharp.fixed} />
+              <div css={personRow}>
+                {people
+                  .filter(
+                    ({ role, semestersActive }) => semestersActive.includes(currentSemester) && role === 'Associate'
+                  )
+                  .map(({ id, name, picture }) => (
+                    <div key={id} className="person" css={personContainer}>
+                      <div css={portraitStyle}>
+                        <Img fixed={picture.childImageSharp.fixed} />
+                      </div>
 
-                    <h6>{name}</h6>
-                  </div>
-                ))}
+                      <div className="placard" css={placardStyle}>
+                        <h6>{name}</h6>
+                      </div>
+                    </div>
+                  ))}
+              </div>
             </section>
 
-            <section>
-              <h2>
-                <span css={peopleTitle}>Previous Students</span>
-              </h2>
+            <section className="people-section" css={peopleSection}>
+              <div className="people-title-header-container" css={peopleTitleHeaderContainer}>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+                <h2>
+                  <span css={peopleTitle}>Previous Students</span>
+                </h2>
+                <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
+              </div>
 
               <ul>
                 {people
