@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ThemeContext } from 'providers/ThemeProvider';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 
-import { Wrapper } from './styles';
+import { NavLinksWrapper } from './styles';
 
 export default function NavbarLinks({ desktop }) {
   const { theme } = useContext(ThemeContext);
@@ -26,7 +26,7 @@ export default function NavbarLinks({ desktop }) {
   ));
 
   return (
-    <Wrapper desktop={desktop} theme={theme}>
+    <NavLinksWrapper desktop={desktop} theme={theme}>
       <div
         style={{
           margin: '0 auto',
@@ -37,6 +37,6 @@ export default function NavbarLinks({ desktop }) {
       >
         {routes}
       </div>
-    </Wrapper>
+    </NavLinksWrapper>
   );
 }

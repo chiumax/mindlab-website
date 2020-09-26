@@ -1,18 +1,18 @@
 export const lightTheme = {
-  primary:"#f1f2f4",
-  secondary:"#f5d7a8",
-  text:"#2a3541",
-  accent:"#eb4755",
-  secondaryAccent:"#4696dd"
-}
+  primary: '#f1f2f4',
+  secondary: '#f5d7a8',
+  text: '#2a3541',
+  accent: '#eb4755',
+  secondaryAccent: '#4696dd',
+};
 
 export const darkTheme = {
-  primary:"#282a2f",
-  secondary:"#2a3541",
-  text:"#e3e5e8",
-  accent:"#a93741",
-  secondaryAccent:"#f0cd2d",
-}
+  primary: '#282a2f',
+  secondary: '#2a3541',
+  text: '#e3e5e8',
+  accent: '#a93741',
+  secondaryAccent: '#f0cd2d',
+};
 /*
 light theme
 primary - white
