@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import useMedia from 'hooks/useMedia';
-import {lightTheme, darkTheme} from "../components/ThemeData";
-
+import { lightTheme, darkTheme } from '../components/ThemeData';
 
 export default () => {
-  var [themeData, setTheme, theme] = useState('light');
+  let [themeData, setTheme, theme] = useState('light');
 
   const toggleTheme = () => {
     if (themeData === 'light') {
@@ -28,7 +27,7 @@ export default () => {
     } else {
       setTheme('light');
     }
-  }, [prefersDarkMode]);
-  theme = themeData === "light" ? lightTheme : darkTheme;
+  }, [prefersDarkMode, setTheme]);
+  theme = themeData === 'light' ? lightTheme : darkTheme;
   return [themeData, toggleTheme, theme];
 };

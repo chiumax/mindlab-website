@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 
-export const Wrapper = styled.button`
+export const ToggleThemeContainer = styled.button`
   background: none;
   border: none;
   cursor: pointer;
@@ -12,7 +12,7 @@ export const Wrapper = styled.button`
   }
 
   @media (max-width: 960px) {
-    text-align: left;
+    ${tw`flex flex-col`}
   }
 
   img {

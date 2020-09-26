@@ -1,12 +1,13 @@
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 
-export const Wrapper = styled.div`
+export const NavLinksWrapper = styled.div`
   a {
     color: #000;
     text-decoration: none;
 
     @media (max-width: 960px) {
       color: ${({ theme }) => theme.text};
+      ${tw`flex flex-col`}
     }
   }
 
@@ -16,17 +17,17 @@ export const Wrapper = styled.div`
 			align-items: center;
 			display: flex;
 
-			@media (max-width: 960px) {
-					display: none;
-			}
-
 			a {
 					margin-right: 1rem;
 
 					&:last-child {
 							margin-right: unset;
 					}
-			}
+      }
+      
+      @media (max-width: 960px) {
+        display: none;
+      }
 		`
       : `
 			padding: 3rem;

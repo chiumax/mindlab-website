@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const SidebarContainer = styled.div`
   position: fixed;
   z-index: 4;
   overflow: auto;
