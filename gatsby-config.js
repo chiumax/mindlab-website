@@ -22,6 +22,10 @@ module.exports = {
         name: 'People',
         link: '/people',
       },
+      {
+        name: 'Diversity',
+        link: '/diversity',
+      },
     ],
   },
   plugins: [
