@@ -11,10 +11,6 @@ module.exports = {
     author: config.author,
     menuLinks: [
       {
-        name: 'About',
-        link: '/about',
-      },
-      {
         name: 'Projects',
         link: '/projects',
       },
@@ -25,6 +21,10 @@ module.exports = {
       {
         name: 'Diversity',
         link: '/diversity',
+      },
+      {
+        name: 'About',
+        link: '/about',
       },
     ],
   },
