@@ -15,6 +15,11 @@ const About = () => {
       <PageWrapper as={Container}>
         <Details theme={theme}>
           <h1>About</h1>
+
+          <p>
+            To be done by Professor Agrawala. He will come up with a write up of its inception, its history, its
+            trajectory, etc
+          </p>
         </Details>
       </PageWrapper>
     </Layout>
