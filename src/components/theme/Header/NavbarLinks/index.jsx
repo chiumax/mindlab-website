@@ -8,7 +8,7 @@ export default function NavbarLinks({ desktop }) {
   const { theme } = useContext(ThemeContext);
 
   const routes = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query NavigationQuery {
       site {
         siteMetadata {
           title
