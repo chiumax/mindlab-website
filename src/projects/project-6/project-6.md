@@ -2,6 +2,7 @@
 path: "/project-6"
 title: "Project 6"
 hero: "./hero.png"
+featured: false
 ---
 
 // TODO: Faizan/Mara to fillout
