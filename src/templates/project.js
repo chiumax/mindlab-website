@@ -6,6 +6,9 @@ import { ThemeContext } from 'providers/ThemeProvider';
 import { Container, Layout, SEO } from 'components/common';
 import { Header } from 'components/theme';
 import { PageWrapper, Details } from 'pages/styles';
+// import "./pilcrow.css";
+// import "./hljs-github.min.css";
+import "./github-markdown.css";
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query we'll write in a bit
@@ -23,11 +26,11 @@ export default function Template({
       <SEO />
       <Header />
       <PageWrapper as={Container}>
-        <Details theme={theme}>
+        <div theme={theme} className={"markdown-body"}>
           <Img fluid={heroImg}/>
           <h1>{frontmatter.title}</h1>
           <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
-        </Details>
+        </div>
       </PageWrapper>
     </Layout>
   );
