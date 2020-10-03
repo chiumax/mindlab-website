@@ -8,6 +8,8 @@ const footerContainerStyles = css`
   display: flex;
   flex-direction: column;
 
+  background-color: #161314;
+
   @media (max-width: 1960px) {
     ${tw`px-4 py-8`}
 
@@ -27,11 +29,17 @@ const footerRowStyles = css`
   ${tw`px-16 pb-8`}
 `;
 
-const footerSectionStyle = css`
+const footerTopSectionStyle = css`
+  color: #f5f5f5;
   ${tw`flex flex-col flex-1`}
 `;
 
+const footerBottomSectionStyle = `
+  color: #f5f5f5;
+`;
+
 const footerSectionTitleStyles = css`
+  color: #f5f5f5;
   ${tw`text-base font-bold`}
 `;
 
@@ -71,18 +79,18 @@ export const Footer = () => {
   return (
     <footer css={footerContainerStyles}>
       <div className="footer-row" css={footerRowStyles}>
-        <section className="footer-brand" css={footerSectionStyle}>
+        <section className="footer-brand" css={footerTopSectionStyle}>
           <h1 css={footerSectionTitleStyles}>MIND Lab</h1>
           <p>Exploring the unknown connections within data</p>
         </section>
 
-        <section className="footer-nav-links" css={footerSectionStyle}>
+        <section className="footer-nav-links" css={footerTopSectionStyle}>
           <h1 css={footerSectionTitleStyles}>Lost?</h1>
 
           {internalRoutes}
         </section>
 
-        <section className="location" css={footerSectionStyle}>
+        <section className="location" css={footerTopSectionStyle}>
           <h1 css={footerSectionTitleStyles}>Where are we?</h1>
 
           <div>Brendan Iribe Center for Computer Science and Engineering</div>
@@ -91,7 +99,7 @@ export const Footer = () => {
           <div>College Park, MD 20742</div>
         </section>
 
-        <section className="footer-social-links" css={footerSectionStyle}>
+        <section className="footer-social-links" css={footerTopSectionStyle}>
           <h1 css={footerSectionTitleStyles}>Stay In Touch</h1>
           {social.map(({ id, name, link, icon }) => (
             <a key={id} href={link} target="_blank" rel="noopener noreferrer" aria-label={`follow me on ${name}`}>
@@ -101,11 +109,11 @@ export const Footer = () => {
         </section>
       </div>
       <div className="footer-row" css={footerRowStyles}>
-        <section className="copyright">
+        <section className="copyright" css={footerBottomSectionStyle}>
           <span>© {new Date().getFullYear()} MIND Lab | All Rights Reserved</span>
         </section>
 
-        <section className="built-by">
+        <section className="built-by" css={footerBottomSectionStyle}>
           <span>Built by Max and Dale</span>
         </section>
       </div>
