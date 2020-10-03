@@ -1,21 +1,47 @@
 import React, { useContext } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import tw, { styled, css } from 'twin.macro';
+import tw, { css } from 'twin.macro';
 
 import { ThemeContext } from 'providers/ThemeProvider';
 import { Container } from 'components/common';
-import { ProjectCard } from 'pages/styles';
-import { FeaturedProjectWrapper } from './styles';
 
-const featuredProjectStyles = css`
+const featureProjectContainer = css`
+  padding: 4rem 0;
   display: flex;
   flex-direction: column;
 
   @media (max-width: 960px) {
+    flex-direction: column;
+  }
+`;
+
+const featuredProjectStyles = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 960px) {
   }
 
-  ${tw`my-32`}
+  ${tw`my-8`}
+`;
+
+/*
+  Describes the "card" style
+*/
+const projectStyle = css`
+  max-width: 300px;
+  ${tw`flex flex-col rounded border-blue-500 border-opacity-25`}
+`;
+
+const projectTitleStyle = css`
+  ${tw`text-xl font-bold mt-4`}
+`;
+
+const projectExcerpt = css`
+  ${tw`text-lg mt-4`}
 `;
 
 const featuredProjectQueryString = graphql`
@@ -29,8 +55,8 @@ const featuredProjectQueryString = graphql`
             title
             hero {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 300) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
@@ -46,21 +72,23 @@ export const FeaturedProject = () => {
   const { theme, themeData } = useContext(ThemeContext);
   const featuredProjects = [useStaticQuery(featuredProjectQueryString).allMarkdownRemark.edges[0].node].map(
     featuredProject => (
-      <ProjectCard key={featuredProject.id} theme={(theme, themeData)}>
-        <h2>
-          <Img fluid={featuredProject.frontmatter.hero.childImageSharp.fluid} />
+      <div key={featuredProject.id} theme={(theme, themeData)} css={projectStyle}>
+        <Img fixed={featuredProject.frontmatter.hero.childImageSharp.fixed} />
+        <h2 css={projectTitleStyle}>
           <Link to={featuredProject.frontmatter.path}>{featuredProject.frontmatter.title}</Link>
         </h2>
-        <p>{featuredProject.excerpt}</p>
-      </ProjectCard>
+        <p css={projectExcerpt}>{featuredProject.excerpt}</p>
+      </div>
     )
   );
 
   return (
-    <FeaturedProjectWrapper as={Container} id="featured-project" css={featuredProjectStyles}>
+    <div as={Container} id="featured-project-container" css={featureProjectContainer}>
       <h1>Featured Projects</h1>
 
-      {featuredProjects}
-    </FeaturedProjectWrapper>
+      <div className="featured-projects" css={featuredProjectStyles}>
+        {featuredProjects}
+      </div>
+    </div>
   );
 };
