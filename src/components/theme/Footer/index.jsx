@@ -4,6 +4,13 @@ import tw, { css } from 'twin.macro';
 
 import social from './social.json';
 
+/*
+  Footer Styles are defined first.
+  * The Footer is a container
+  * The Footer has a top row and a bottom row
+  * Each row is made of sections
+*/
+
 const footerContainerStyles = css`
   display: flex;
   flex-direction: column;
@@ -21,10 +28,29 @@ const footerContainerStyles = css`
   }
 `;
 
-const footerRowStyles = css`
+const footerTopRowStyles = css`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
+
+  ${tw`px-16 pb-8`}
+`;
+
+const footerBottomRowStyles = css`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-bottom: 2rem;
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
 
   ${tw`px-16 pb-8`}
 `;
@@ -32,10 +58,23 @@ const footerRowStyles = css`
 const footerTopSectionStyle = css`
   color: #f5f5f5;
   ${tw`flex flex-col flex-1`}
+
+  @media (max-width: 960px) {
+    margin-bottom: 3rem;
+  }
+`;
+
+const footerSocialStyle = css`
+  ${tw`flex flex-row`}
 `;
 
 const footerBottomSectionStyle = `
+  margin-top: 4rem;
   color: #f5f5f5;
+
+  @media (max-width: 960px) {
+    margin-bottom: 0;
+  }
 `;
 
 const footerSectionTitleStyles = css`
@@ -78,7 +117,7 @@ export const Footer = () => {
 
   return (
     <footer css={footerContainerStyles}>
-      <div className="footer-row" css={footerRowStyles}>
+      <div className="footer-row" css={footerTopRowStyles}>
         <section className="footer-brand" css={footerTopSectionStyle}>
           <h1 css={footerSectionTitleStyles}>MIND Lab</h1>
           <p>Exploring the unknown connections within data</p>
@@ -99,16 +138,20 @@ export const Footer = () => {
           <div>College Park, MD 20742</div>
         </section>
 
-        <section className="footer-social-links" css={footerTopSectionStyle}>
+        <section className="footer-social-container" css={footerTopSectionStyle}>
           <h1 css={footerSectionTitleStyles}>Stay In Touch</h1>
-          {social.map(({ id, name, link, icon }) => (
-            <a key={id} href={link} target="_blank" rel="noopener noreferrer" aria-label={`follow me on ${name}`}>
-              <img width="24" src={icon} alt={name} />
-            </a>
-          ))}
+
+          <div className="footer-social-links" css={footerSocialStyle}>
+            {social.map(({ id, name, link, icon }) => (
+              <a key={id} href={link} target="_blank" rel="noopener noreferrer" aria-label={`follow us on ${name}`}>
+                <img width="24" src={icon} alt={name} />
+              </a>
+            ))}
+          </div>
         </section>
       </div>
-      <div className="footer-row" css={footerRowStyles}>
+
+      <div className="footer-row" css={footerBottomRowStyles}>
         <section className="copyright" css={footerBottomSectionStyle}>
           <span>© {new Date().getFullYear()} MIND Lab | All Rights Reserved</span>
         </section>
