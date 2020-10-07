@@ -52,7 +52,7 @@ export const peopleTitle = css`
 export const personRow = css`
   ${tw`flex flex-row gap-8`}
 
-  @media @max-width: 960px) {
+  @media (max-width: 960px) {
     ${tw`flex flex-col justify-center`}
   }
 `;
