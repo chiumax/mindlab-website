@@ -1,13 +1,16 @@
 ---
-path: "/lorem-ipsum"
-title: "Lorem You Knew It Was Coming Ipsum"
+path: "/location-and-contact-tracing"
+title: "Location and Contact Tracing"
 hero: "./hero.png"
 featured: false
+oneLiner: "If we know where people have been around campus, we can develop very accurate contact tracing models based on both their indoor and outdoor locations"
 ---
 
 // TODO: Faizan/Mara to fillout
 
 Nibh tortor id aliquet lectus proin nibh nisl. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Sagittis purus sit amet volutpat consequat mauris nunc. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Bibendum neque egestas congue quisque egestas diam in. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue. Nec feugiat nisl pretium fusce. Consequat nisl vel pretium lectus quam id. Fermentum et sollicitudin ac orci phasellus egestas. Et magnis dis parturient montes nascetur ridiculus mus. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Bibendum at varius vel pharetra vel. Id volutpat lacus laoreet non. Purus gravida quis blandit turpis cursus in hac habitasse platea. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Ante in nibh mauris cursus mattis molestie a iaculis at. Molestie a iaculis at erat pellentesque adipiscing commodo elit at.
+
+> "If we know where people have been around campus, we can develop very accurate contact tracing models based on both their indoor and outdoor locations"
 
 Vitae turpis massa sed elementum tempus egestas sed sed. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. Volutpat est velit egestas dui id ornare arcu odio. Auctor eu augue ut lectus arcu bibendum at varius vel. Nulla malesuada pellentesque elit eget gravida cum. Egestas sed sed risus pretium quam vulputate. Nibh sit amet commodo nulla facilisi nullam vehicula. Magna eget est lorem ipsum dolor sit amet consectetur adipiscing. Egestas quis ipsum suspendisse ultrices gravida dictum fusce. Mi tempus imperdiet nulla malesuada pellentesque elit eget.
 
