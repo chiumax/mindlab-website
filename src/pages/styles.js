@@ -92,8 +92,7 @@ export const ResponsiveDesktopContainer = styled.div`
 
 export const ResponsiveColumn = styled.div`
   display: flex;
-  flex-direction: row;
-  ${tw`space-x-16`}
+  flex-direction: column;
 `;
 
 export const ProjectCard = styled.div`
