@@ -27,6 +27,10 @@ const peopleSection = css`
 
 const personContainer = css`
   ${tw`flex flex-col items-center `}
+
+  @media (max-width: 960px) {
+    ${tw`mb-4`}
+  }
 `;
 
 export const peopleTitleHeaderContainer = css`
@@ -47,6 +51,10 @@ export const peopleTitle = css`
 
 export const personRow = css`
   ${tw`flex flex-row gap-8`}
+
+  @media @max-width: 960px) {
+    ${tw`flex flex-col justify-center`}
+  }
 `;
 
 /**
