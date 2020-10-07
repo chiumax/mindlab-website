@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import tw, { css } from 'twin.macro';
 import { graphql, Link } from 'gatsby';
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 import Img from 'gatsby-image';
@@ -15,6 +16,10 @@ import {
   ResponsiveDesktopContainer,
 } from 'pages/styles';
 
+const projectHeaderStyles = css`
+  ${tw`text-xl mb-4`}
+`;
+
 const Projects = ({ data }) => {
   const { theme, themeData } = useContext(ThemeContext);
   const { edges: posts } = data.allMarkdownRemark;
@@ -28,7 +33,7 @@ const Projects = ({ data }) => {
       <Header />
       <PageWrapper as={Container}>
         <Details theme={(theme, themeData)}>
-          <h1>Projects</h1>
+          <h1 css={projectHeaderStyles}>Projects</h1>
           {console.log(themeData)} {console.log('theme data')}
           {/*
               Not the greatest thing to do, but desktops need to
@@ -49,11 +54,11 @@ const Projects = ({ data }) => {
                 .filter(post => post.node.frontmatter.title.length > 0)
                 .map(({ node: post }) => (
                   <ProjectCard key={post.id} theme={(theme, themeData)}>
+                    <Img fixed={post.frontmatter.hero.childImageSharp.fixed} />
                     <h2>
-                      <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
                       <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
                     </h2>
-                    <p>{post.excerpt}</p>
+                    <p>{post.frontmatter.oneLiner}</p>
                   </ProjectCard>
                 ))}
             </ResponsiveMobileContainer>
@@ -61,40 +66,27 @@ const Projects = ({ data }) => {
             <ResponsiveDesktopContainer>
               <ResponsiveColumn>
                 {posts
-                  .filter((v, i) => i % 3 === 0)
+                  .filter((v, i) => i % 2 === 0)
                   .map(({ node: post }) => (
                     <ProjectCard key={post.id} theme={(theme, themeData)}>
+                      <Img fixed={post.frontmatter.hero.childImageSharp.fixed} />
                       <h2>
-                        <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
                         <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
                       </h2>
-                      <p>{post.excerpt}</p>
+                      <p>{post.frontmatter.oneLiner}</p>
                     </ProjectCard>
                   ))}
               </ResponsiveColumn>
               <ResponsiveColumn>
                 {posts
-                  .filter((v, i) => i % 3 === 1)
+                  .filter((v, i) => i % 2 === 1)
                   .map(({ node: post }) => (
                     <ProjectCard key={post.id} theme={(theme, themeData)}>
+                      <Img fixed={post.frontmatter.hero.childImageSharp.fixed} />
                       <h2>
-                        <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
                         <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
                       </h2>
-                      <p>{post.excerpt}</p>
-                    </ProjectCard>
-                  ))}
-              </ResponsiveColumn>
-              <ResponsiveColumn>
-                {posts
-                  .filter((v, i) => i % 3 === 2)
-                  .map(({ node: post }) => (
-                    <ProjectCard key={post.id} theme={(theme, themeData)}>
-                      <h2>
-                        <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
-                        <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-                      </h2>
-                      <p>{post.excerpt}</p>
+                      <p>{post.frontmatter.oneLiner}</p>
                     </ProjectCard>
                   ))}
               </ResponsiveColumn>
@@ -114,15 +106,15 @@ export const pageQuery = graphql`
           frontmatter {
             path
             title
+            oneLiner
             hero {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 300) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
           }
-          excerpt(pruneLength: 500)
         }
       }
     }

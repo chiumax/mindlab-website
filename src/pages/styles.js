@@ -85,9 +85,12 @@ export const ResponsiveMobileContainer = styled.div`
 export const ResponsiveDesktopContainer = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-content: space-between;
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
 `;
 
 export const ResponsiveColumn = styled.div`
@@ -96,5 +99,10 @@ export const ResponsiveColumn = styled.div`
 `;
 
 export const ProjectCard = styled.div`
+  display: flex;
+  flex-direction: column;
   flex: 1;
+  margin-bottom: 4rem;
+  width: 350px;
+  height: 400px;
 `;

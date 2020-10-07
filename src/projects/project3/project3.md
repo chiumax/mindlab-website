@@ -3,6 +3,7 @@ path: "/project-3"
 title: "Project 3"
 hero: "./hero.png"
 featured: false
+oneLiner: "No one-liner here"
 ---
 
 // TODO: Faizan/Mara to fillout
