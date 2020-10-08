@@ -256,6 +256,7 @@
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
+  list-style-type: decimal;
 }
 
 .markdown-body ol ol,
@@ -681,7 +682,6 @@
 .markdown-body h1,
 .markdown-body h2 {
   padding-bottom: .3em;
-  border-bottom: 1px solid #eaecef;
 }
 
 .markdown-body h2 {

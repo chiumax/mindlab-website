@@ -14,6 +14,11 @@ import {
   ResponsiveColumn,
   ResponsiveMobileContainer,
   ResponsiveDesktopContainer,
+  TagContainer,
+  Tag,
+  StyledLink,
+  OneLiner,
+  AlignRight
 } from 'pages/styles';
 
 const projectHeaderStyles = css`
@@ -38,22 +43,32 @@ const Projects = ({ data }) => {
                 {posts
                   .map(({ node: post }) => (
                     <ProjectCard key={post.id} theme={(theme, themeData)}>
-                      <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
-                      <h2>
-                        <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-                      </h2>
-                      <p>{post.frontmatter.oneLiner}</p>
+                       <Link to={post.frontmatter.path}>
+                        <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
+                        <h2>
+                        {post.frontmatter.title}
+                        </h2>
+                        </Link>
+                        <TagContainer>
+                          {
+                            post.frontmatter.tags ?(post.frontmatter.tags.map((tag)=> (
+                              <Tag theme={(theme)}>{tag}{console.log(theme)}</Tag>
+                              ))):""}
+                        </TagContainer>
+                        <OneLiner>{post.frontmatter.oneLiner}</OneLiner>
+                        <AlignRight>
+                          <Link className={"link"} to={post.frontmatter.path}>Click here for more {`>>`}</Link>
+                        </AlignRight>
                     </ProjectCard>
                   ))}
             </ResponsiveDesktopContainer>
-          
         </Details>
       </PageWrapper>
     </Layout>
   );
 };
 
-export const pageQuery = graphql`
+export const staticQuery = graphql`
   {
     allMarkdownRemark {
       edges {
@@ -65,8 +80,8 @@ export const pageQuery = graphql`
             tags
             hero {
               childImageSharp {
-                fixed(width: 300) {
-                  ...GatsbyImageSharpFixed
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

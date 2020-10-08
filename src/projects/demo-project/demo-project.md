@@ -63,10 +63,10 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 
 1. First ordered list item
 2. Another item
-   * Unordered sub-list. 
-1. Actual numbers don't matter, just that it's a number
+   1. Unordered sub-list. 
+3. Actual numbers don't matter, just that it's a number
    1. Ordered sub-list
-2. And another item.
+4. And another item.
 
   You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
 
@@ -77,6 +77,11 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 * Unordered list can use asterisks
 - Or minuses
 + Or pluses
+
+## Quotes
+  > This is a quote
+
+  > bigger quote <br/> big quote <br/>  big quote
 
 ## Links
 

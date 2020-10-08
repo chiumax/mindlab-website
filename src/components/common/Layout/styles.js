@@ -21,4 +21,12 @@ body {
   -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 }
+
+.link{
+  color: ${({ theme }) => theme.accent};
+  position: absolute;
+}
+.link:hover {
+  border-bottom: 1px solid;
+}
 `;
