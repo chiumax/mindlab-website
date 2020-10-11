@@ -93,6 +93,14 @@ const footerSectionTitleStyles = css`
   ${tw`text-base font-bold`}
 `;
 
+const footerLinkStyle = css`
+  ${tw`text-blue-500 hover:underline hover:text-yellow-500`}
+`;
+
+const builtByStyles = css`
+  ${tw`flex flex-row gap-1 items-center`}
+`;
+
 const widthAuto = () => ({ tw: 'w-auto' });
 
 /**
@@ -121,7 +129,7 @@ export const Footer = () => {
       }
     }
   `).site.siteMetadata.menuLinks.map(menuLink => (
-    <Link to={menuLink.link} key={menuLink.link} getProps={widthAuto}>
+    <Link to={menuLink.link} key={menuLink.link} getProps={widthAuto} css={footerLinkStyle}>
       {menuLink.name}
     </Link>
   ));
@@ -137,6 +145,9 @@ export const Footer = () => {
         <section className="footer-nav-links" css={footerTopSectionStyle}>
           <h1 css={footerSectionTitleStyles}>Lost?</h1>
 
+          <Link css={footerLinkStyle} to="/">
+            Home
+          </Link>
           {internalRoutes}
         </section>
 
@@ -153,11 +164,9 @@ export const Footer = () => {
           <h1 css={footerSectionTitleStyles}>Stay In Touch</h1>
 
           <div className="footer-social-links" css={footerSocialStyle}>
-            {social.map(({ id, name, link, icon }) => (
-              <a key={id} href={link} target="_blank" rel="noopener noreferrer" aria-label={`follow us on ${name}`}>
-                <img width="24" src={icon} alt={name} />
-              </a>
-            ))}
+            <a href="mailto:agrawala@cs.umd.edu" css={footerLinkStyle}>
+              Ask us a question
+            </a>
           </div>
         </section>
       </div>
@@ -168,7 +177,16 @@ export const Footer = () => {
         </section>
 
         <section className="built-by" css={footerBottomSectionStyle}>
-          <span>Built by Max and Dale</span>
+          <span css={builtByStyles}>
+            Built by Max and Dale{' '}
+            <a
+              href="https://github.com/fwajid/mindlab_website"
+              rel="noopener noreferrer"
+              aria-label="View the project on GitHub"
+            >
+              <img width="24" src="/icons/github.svg" alt="GitHub logo" />
+            </a>
+          </span>
         </section>
       </div>
     </footer>
