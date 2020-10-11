@@ -10,74 +10,7 @@ import { Header } from 'components/theme';
 import { ResponsiveMobileContainer, ResponsiveDesktopContainer, ResponsiveColumn } from 'pages/styles';
 import { PageWrapper, Details } from './styles';
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    Modify this value to change the current semester
-* * * * * * * * * * * * * * * * * * * * * * * * * * * */
-const currentYear = 2020;
-const currentSeason = 'Fall';
-
-// a "semester" is a combination of a season and a year, such as "Summer 2020"
-const currentSemester = {
-  semester: currentSeason,
-  year: currentYear,
-};
-
-// list of all available semester types
-const SEASONS = ['Spring', 'Summer', 'Fall'];
-
-/*
-  Past two years, exclusive.
-  If current term is "Summer 2020", the previous two year terms are:
-  * Spring 2020
-  * Fall 2019
-  * Summer 2019
-  * Spring 2019
-  * Fall 2018
-  * Summer 2018
-  
-  in order to get these values, loop through SEMESTER_TYPES backwards to pull that value, and then every time the index goes negative, decrement the year.
-  There will always be 6 terms
-*/
-const currentSeasonIdx = SEASONS.find(currentSeason);
-
-const pastTwoYearTerms = Array(6).map((value, index) => {
-  // index goes from 0 to 5. Like in the example above, we're going to count backwards from the present semester
-  const numTermFromPresent = index + 1;
-
-  /*
-    If currentSeason = Fall, then numSeasonsTilBeginning = 2
-    if currentSeason = Summer, then numSeasonsTilBeginning = 1
-    if currentSeason = Spring, then numSeasonsTilBeginning = 0
-  */
-  const numSeasonsTilBeginning = currentSeasonIdx;
-
-  /*
-    numYearsPassed is the number of years we went back in time.
-    Given numTermsFromPresent and numSeasonsTilBeginning,
-    * if (numTermsFromPresent < numSeasonsTilBeginning), we are in the same year
-    * if (numTermsFromPresent > numSeasonsTilBeginning) && (numTermsFromPresent < numSeasonTilBeginning + SEASONS.length), we are 1 year into the past
-    * if (numTermsFromPresent > numSeasonsTilBeginning) && (numTermsFromPresent > numSeasonsTilBeginning + N * SEASONS.length), we are N - 1 years into the past (at least)
-  */
-  const numYearsPassed = 0;
-
-  /*
-    The season and year depend on the result of the modulus with the SEASONS.length
-    Each time the difference from the currentSemester loops back around:
-    * Decrement the year
-    * Reset the index to start at SEASONS.length
-  */
-  const previousSeasonIdx =
-    currentSeasonIdx - numTermFromPresent < 0 ? SEASONS.length : currentSeasonIdx - numTermFromPresent;
-  const previousSeason = SEASONS[previousSeasonIdx];
-
-  // previous year is the number of times we pass around the length of 
-  const previousYear = currentYear - ();
-
-  return {
-    semester: previousSeason,
-    year: previousYear,
-  };
-});
+import { hasSemesterOverlap, NUM_PAST_YEARS, pastNYearTerms, SEASONS, CURRENT_SEMESTER } from './utils/time-utils';
 
 // Styles
 // TODO: refactor how styles are handled. Maybe have a `common` folder/file
@@ -128,6 +61,35 @@ const placardStyle = css`
   ${tw`my-2 flex flex-row justify-center`}
 `;
 
+// const PAST_SEMESTERS = pastNYearTerms(SEASONS, CURRENT_SEMESTER, NUM_PAST_YEARS);
+const PAST_SEMESTERS = [
+  {
+    season: 'Summer',
+    year: 2020,
+  },
+  {
+    season: 'Spring',
+    year: 2020,
+  },
+  {
+    season: 'Fall',
+    year: 2019,
+  },
+  {
+    season: 'Summer',
+    year: 2019,
+  },
+  {
+    season: 'Spring',
+    year: 2019,
+  },
+  {
+    season: 'Fall',
+    year: 2018,
+  },
+];
+console.log('PAST_SEMESTERS', PAST_SEMESTERS);
+
 /**
  * Uses the following article to query data from a JSON file as GraphQL.
  * https://itnext.io/reading-data-from-a-json-file-with-gatsby-graphql-572b18ab98a
@@ -155,7 +117,7 @@ const People = () => {
               }
               role
               semestersActive {
-                semester
+                season
                 year
               }
             }
@@ -234,7 +196,7 @@ const People = () => {
                 <div style={{ marginBottom: 0 }} css={peopleTitle}>
                   Graduate Students{' '}
                   <span css={italicText}>
-                    ({currentSeason.semester} {currentSeason.year})
+                    ({CURRENT_SEMESTER.season} {CURRENT_SEMESTER.year})
                   </span>
                 </div>
                 <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
@@ -263,7 +225,7 @@ const People = () => {
                 <div style={{ marginBottom: 0 }} css={peopleTitle}>
                   Students{' '}
                   <span css={italicText}>
-                    ({currentSeason.semester} {currentSeason.year})
+                    ({CURRENT_SEMESTER.season} {CURRENT_SEMESTER.year})
                   </span>
                 </div>
                 <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
@@ -292,7 +254,7 @@ const People = () => {
                 <div style={{ marginBottom: 0 }} css={peopleTitle}>
                   Associates{' '}
                   <span css={italicText}>
-                    ({currentSeason.semester} {currentSeason.year})
+                    ({CURRENT_SEMESTER.season} {CURRENT_SEMESTER.year})
                   </span>
                 </div>
                 <div className="people-title-header-line" css={peopleTitleHeaderLine}></div>
@@ -327,7 +289,7 @@ const People = () => {
               <ul>
                 {people
                   .filter(({ role }) => role === 'Student')
-                  .filter(({ semestersActive }) => semestersActive)
+                  .filter(({ semestersActive }) => hasSemesterOverlap(semestersActive, PAST_SEMESTERS))
                   .map(({ id, name }) => (
                     <li key={id}>{name}</li>
                   ))}

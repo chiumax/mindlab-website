@@ -16,6 +16,11 @@ const featureProjectContainer = css`
   }
 `;
 
+// describes the styles for the Header "Featured Project" and link to see all projects
+const featuredProjectHeaderContainerStyles = css`
+  ${tw`flex flex-row justify-between`}
+`;
+
 const featuredProjectStyles = css`
   display: flex;
   flex-direction: column;
@@ -84,7 +89,11 @@ export const FeaturedProject = () => {
 
   return (
     <div as={Container} id="featured-project-container" css={featureProjectContainer}>
-      <h1>Featured Projects</h1>
+      <div className="featured-project-header-container" css={featuredProjectHeaderContainerStyles}>
+        <h1>Featured Projects</h1>
+
+        <Link to="/projects">All Projects</Link>
+      </div>
 
       <div className="featured-projects" css={featuredProjectStyles}>
         {featuredProjects}
