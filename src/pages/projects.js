@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import tw, { css } from 'twin.macro';
 import { graphql, Link } from 'gatsby';
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 import Img from 'gatsby-image';
@@ -13,7 +14,16 @@ import {
   ResponsiveColumn,
   ResponsiveMobileContainer,
   ResponsiveDesktopContainer,
+  TagContainer,
+  Tag,
+  StyledLink,
+  OneLiner,
+  AlignRight
 } from 'pages/styles';
+
+const projectHeaderStyles = css`
+  ${tw`text-xl mb-4`}
+`;
 
 const Projects = ({ data }) => {
   const { theme, themeData } = useContext(ThemeContext);
@@ -27,86 +37,38 @@ const Projects = ({ data }) => {
       <SEO />
       <Header />
       <PageWrapper as={Container}>
-        <Details theme={(theme, themeData)}>
+        <Details theme={(theme, themeData)} >
           <h1>Projects</h1>
-          {console.log(themeData)} {console.log('theme data')}
-          {/*
-              Not the greatest thing to do, but desktops need to
-              show three columns, and mobile devices will show one
-              column. The traditional way of using Flexbox Grid to
-              handle this responsiveness relies on a constant, 
-              previously known number of items to display. Since
-              the code is doing `posts.map`, the items cannot be
-              hard-coded into columns.
-
-              There are two options:
-                * define one HTML and responsive CSS style
-                * define two HTML and one CSS style
-            */}
-          {breakpoints.xs || breakpoints.sm ? (
-            <ResponsiveMobileContainer>
-              {posts
-                .filter(post => post.node.frontmatter.title.length > 0)
-                .map(({ node: post }) => (
-                  <ProjectCard key={post.id} theme={(theme, themeData)}>
-                    <h2>
-                      <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
-                      <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-                    </h2>
-                    <p>{post.excerpt}</p>
-                  </ProjectCard>
-                ))}
-            </ResponsiveMobileContainer>
-          ) : (
             <ResponsiveDesktopContainer>
-              <ResponsiveColumn>
                 {posts
-                  .filter((v, i) => i % 3 === 0)
                   .map(({ node: post }) => (
                     <ProjectCard key={post.id} theme={(theme, themeData)}>
-                      <h2>
+                       <Link to={post.frontmatter.path}>
                         <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
-                        <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-                      </h2>
-                      <p>{post.excerpt}</p>
+                        <h2>
+                        {post.frontmatter.title}
+                        </h2>
+                        </Link>
+                        <TagContainer>
+                          {
+                            post.frontmatter.tags ?(post.frontmatter.tags.map((tag)=> (
+                              <Tag theme={(theme)}>{tag}{console.log(theme)}</Tag>
+                              ))):""}
+                        </TagContainer>
+                        <OneLiner>{post.frontmatter.oneLiner}</OneLiner>
+                        <AlignRight>
+                          <Link className={"link"} to={post.frontmatter.path}>Click here for more {`>>`}</Link>
+                        </AlignRight>
                     </ProjectCard>
                   ))}
-              </ResponsiveColumn>
-              <ResponsiveColumn>
-                {posts
-                  .filter((v, i) => i % 3 === 1)
-                  .map(({ node: post }) => (
-                    <ProjectCard key={post.id} theme={(theme, themeData)}>
-                      <h2>
-                        <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
-                        <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-                      </h2>
-                      <p>{post.excerpt}</p>
-                    </ProjectCard>
-                  ))}
-              </ResponsiveColumn>
-              <ResponsiveColumn>
-                {posts
-                  .filter((v, i) => i % 3 === 2)
-                  .map(({ node: post }) => (
-                    <ProjectCard key={post.id} theme={(theme, themeData)}>
-                      <h2>
-                        <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
-                        <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-                      </h2>
-                      <p>{post.excerpt}</p>
-                    </ProjectCard>
-                  ))}
-              </ResponsiveColumn>
             </ResponsiveDesktopContainer>
-          )}
         </Details>
       </PageWrapper>
     </Layout>
   );
 };
 
-export const pageQuery = graphql`
+export const staticQuery = graphql`
   {
     allMarkdownRemark {
       edges {
@@ -114,6 +76,8 @@ export const pageQuery = graphql`
           frontmatter {
             path
             title
+            oneLiner
+            tags
             hero {
               childImageSharp {
                 fluid(maxWidth: 800) {
@@ -122,7 +86,6 @@ export const pageQuery = graphql`
               }
             }
           }
-          excerpt(pruneLength: 500)
         }
       }
     }

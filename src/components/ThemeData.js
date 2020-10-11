@@ -3,7 +3,7 @@ export const lightTheme = {
   secondary: '#f5d7a8',
   text: '#2a3541',
   accent: '#eb4755',
-  secondaryAccent: '#4696dd',
+  secondaryAccent: '#F0CD2D',
 };
 
 export const darkTheme = {
