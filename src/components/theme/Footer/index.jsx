@@ -2,8 +2,6 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import tw, { css } from 'twin.macro';
 
-import social from './social.json';
-
 /*
   Footer Styles are defined first.
   * The Footer is a container
@@ -12,51 +10,48 @@ import social from './social.json';
 */
 
 const footerContainerStyles = css`
-  display: flex;
-  flex-direction: column;
-
   background-color: #161314;
 
-  @media (max-width: 1960px) {
+  ${tw`flex flex-col items-center pt-8`}
+
+  @media (min-width: 1440px) {
     ${tw`px-4 py-8`}
-
-    padding-top: 14rem;
-  }
-
-  :last-child {
-    ${tw`mt-8`}
   }
 `;
 
 const footerTopRowStyles = css`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  ${tw`flex flex-row justify-between px-16 py-8`}
 
   @media (max-width: 960px) {
-    flex-direction: column;
+    ${tw`flex-col`}
   }
 
-  ${tw`px-16 pb-8`}
+  @media (min-width: 1440px) {
+    ${tw`justify-center`}
+  }
 `;
 
 const footerBottomRowStyles = css`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  ${tw`w-screen flex flex-row justify-between items-center gap-64 px-16 pb-8`}
 
-  margin-bottom: 2rem;
+  @media (min-width: 320px) {
+    ${tw`items-start gap-2`}
+  }
 
   @media (max-width: 960px) {
     flex-direction: column;
     margin-bottom: 0;
   }
 
-  ${tw`px-16 pb-8`}
+  @media (min-width: 1440px) {
+    width: 1200px;
+    ${tw`justify-between items-center`}
+  }
 `;
 
 const footerTopSectionStyle = css`
   color: #f5f5f5;
+  max-width: 300px;
   ${tw`flex flex-col flex-1`}
 
   @media (max-width: 960px) {
@@ -64,13 +59,13 @@ const footerTopSectionStyle = css`
   }
 `;
 
-const footerSocialStyle = css`
-  ${tw`flex flex-row`}
-`;
-
-const footerBottomSectionStyle = `
-  margin-top: 4rem;
+const footerBottomSectionStyle = css`
+  ${tw`mt-16`}
   color: #f5f5f5;
+
+  @media (min-width: 320px) {
+    ${tw`mt-4`}
+  }
 
   @media (max-width: 960px) {
     margin-bottom: 0;
@@ -80,6 +75,14 @@ const footerBottomSectionStyle = `
 const footerSectionTitleStyles = css`
   color: #f5f5f5;
   ${tw`text-base font-bold`}
+`;
+
+const builtByStyle = css`
+  ${tw`flex flex-row gap-1 items-center`}
+`;
+
+const footerLinkStyle = css`
+  ${tw`text-blue-500 hover:underline hover:text-yellow-500`}
 `;
 
 const widthAuto = () => ({ tw: 'w-auto' });
@@ -110,7 +113,7 @@ export const Footer = () => {
       }
     }
   `).site.siteMetadata.menuLinks.map(menuLink => (
-    <Link to={menuLink.link} key={menuLink.link} getProps={widthAuto}>
+    <Link css={footerLinkStyle} to={menuLink.link} key={menuLink.link} getProps={widthAuto}>
       {menuLink.name}
     </Link>
   ));
@@ -126,6 +129,9 @@ export const Footer = () => {
         <section className="footer-nav-links" css={footerTopSectionStyle}>
           <h1 css={footerSectionTitleStyles}>Lost?</h1>
 
+          <Link css={footerLinkStyle} to="/">
+            Home
+          </Link>
           {internalRoutes}
         </section>
 
@@ -141,13 +147,9 @@ export const Footer = () => {
         <section className="footer-social-container" css={footerTopSectionStyle}>
           <h1 css={footerSectionTitleStyles}>Stay In Touch</h1>
 
-          <div className="footer-social-links" css={footerSocialStyle}>
-            {social.map(({ id, name, link, icon }) => (
-              <a key={id} href={link} target="_blank" rel="noopener noreferrer" aria-label={`follow us on ${name}`}>
-                <img width="24" src={icon} alt={name} />
-              </a>
-            ))}
-          </div>
+          <a css={footerLinkStyle} href="mailto:agrawala@cs.umd.edu">
+            Ask a question
+          </a>
         </section>
       </div>
 
@@ -157,7 +159,12 @@ export const Footer = () => {
         </section>
 
         <section className="built-by" css={footerBottomSectionStyle}>
-          <span>Built by Max and Dale</span>
+          <span css={builtByStyle}>
+            Built by Max and Dale{' '}
+            <a href="https://github.com/fwajid/mindlab_website" aria-label="See the project on GitHub">
+              <img width="24" src="/icons/github.svg" alt="GitHub logo" />
+            </a>
+          </span>
         </section>
       </div>
     </footer>
