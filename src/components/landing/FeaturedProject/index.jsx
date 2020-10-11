@@ -18,7 +18,7 @@ const featureProjectContainer = css`
 
 // describes the styles for the Header "Featured Project" and link to see all projects
 const featuredProjectHeaderContainerStyles = css`
-  ${tw`flex flex-row justify-between`}
+  ${tw`flex flex-row justify-between items-end`}
 `;
 
 const featuredProjectStyles = css`
@@ -33,12 +33,20 @@ const featuredProjectStyles = css`
   ${tw`my-8`}
 `;
 
+const allProjectsLinkStyle = css`
+  ${tw`text-blue-500 hover:underline`}
+`;
+
 /*
   Describes the "card" style
 */
 const projectStyle = css`
   max-width: 300px;
   ${tw`flex flex-col rounded border-blue-500 border-opacity-25`}
+`;
+
+const featuredProjectTitleStyle = css`
+  ${tw`my-0`}
 `;
 
 const projectTitleStyle = css`
@@ -90,9 +98,11 @@ export const FeaturedProject = () => {
   return (
     <div as={Container} id="featured-project-container" css={featureProjectContainer}>
       <div className="featured-project-header-container" css={featuredProjectHeaderContainerStyles}>
-        <h1>Featured Projects</h1>
+        <h1 css={featuredProjectTitleStyle}>Featured Projects</h1>
 
-        <Link to="/projects">All Projects</Link>
+        <Link css={allProjectsLinkStyle} to="/projects">
+          All Projects
+        </Link>
       </div>
 
       <div className="featured-projects" css={featuredProjectStyles}>

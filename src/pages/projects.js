@@ -18,7 +18,7 @@ import {
   Tag,
   StyledLink,
   OneLiner,
-  AlignRight
+  AlignRight,
 } from 'pages/styles';
 
 const projectHeaderStyles = css`
@@ -37,31 +37,34 @@ const Projects = ({ data }) => {
       <SEO />
       <Header />
       <PageWrapper as={Container}>
-        <Details theme={(theme, themeData)} >
+        <Details theme={(theme, themeData)}>
           <h1>Projects</h1>
-            <ResponsiveDesktopContainer>
-                {posts
-                  .map(({ node: post }) => (
-                    <ProjectCard key={post.id} theme={(theme, themeData)}>
-                       <Link to={post.frontmatter.path}>
-                        <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
-                        <h2>
-                        {post.frontmatter.title}
-                        </h2>
-                        </Link>
-                        <TagContainer>
-                          {
-                            post.frontmatter.tags ?(post.frontmatter.tags.map((tag)=> (
-                              <Tag theme={(theme)}>{tag}{console.log(theme)}</Tag>
-                              ))):""}
-                        </TagContainer>
-                        <OneLiner>{post.frontmatter.oneLiner}</OneLiner>
-                        <AlignRight>
-                          <Link className={"link"} to={post.frontmatter.path}>Click here for more {`>>`}</Link>
-                        </AlignRight>
-                    </ProjectCard>
-                  ))}
-            </ResponsiveDesktopContainer>
+          <ResponsiveDesktopContainer>
+            {posts.map(({ node: post }) => (
+              <ProjectCard key={post.id} theme={(theme, themeData)}>
+                <Link to={post.frontmatter.path}>
+                  <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
+                  <h2>{post.frontmatter.title}</h2>
+                </Link>
+                <TagContainer>
+                  {post.frontmatter.tags
+                    ? post.frontmatter.tags.map(tag => (
+                        <Tag theme={theme}>
+                          {tag}
+                          {console.log(theme)}
+                        </Tag>
+                      ))
+                    : ''}
+                </TagContainer>
+                <OneLiner>{post.frontmatter.oneLiner}</OneLiner>
+                <AlignRight>
+                  <Link className="link" to={post.frontmatter.path}>
+                    Click here for more {`>>`}
+                  </Link>
+                </AlignRight>
+              </ProjectCard>
+            ))}
+          </ResponsiveDesktopContainer>
         </Details>
       </PageWrapper>
     </Layout>
