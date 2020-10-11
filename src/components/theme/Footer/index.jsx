@@ -12,7 +12,7 @@ import tw, { css } from 'twin.macro';
 const footerContainerStyles = css`
   background-color: #161314;
 
-  ${tw`flex flex-col items-center`}
+  ${tw`flex flex-col items-center pt-8`}
 
   @media (min-width: 1440px) {
     ${tw`px-4 py-8`}
@@ -20,7 +20,7 @@ const footerContainerStyles = css`
 `;
 
 const footerTopRowStyles = css`
-  ${tw`flex flex-row justify-between px-16 pb-8`}
+  ${tw`flex flex-row justify-between px-16 py-8`}
 
   @media (max-width: 960px) {
     ${tw`flex-col`}
@@ -32,7 +32,11 @@ const footerTopRowStyles = css`
 `;
 
 const footerBottomRowStyles = css`
-  ${tw`flex flex-row justify-between px-16 pb-8`}
+  ${tw`w-screen flex flex-row justify-between items-center gap-64 px-16 pb-8`}
+
+  @media (min-width: 320px) {
+    ${tw`items-start gap-2`}
+  }
 
   @media (max-width: 960px) {
     flex-direction: column;
@@ -55,9 +59,13 @@ const footerTopSectionStyle = css`
   }
 `;
 
-const footerBottomSectionStyle = `
-  margin-top: 4rem;
+const footerBottomSectionStyle = css`
+  ${tw`mt-16`}
   color: #f5f5f5;
+
+  @media (min-width: 320px) {
+    ${tw`mt-4`}
+  }
 
   @media (max-width: 960px) {
     margin-bottom: 0;
