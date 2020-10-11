@@ -5,6 +5,7 @@ import tw, { css } from 'twin.macro';
 
 import { ThemeContext } from 'providers/ThemeProvider';
 import { Container } from 'components/common';
+import RightArrow from 'components/common/Icons/RightArrow';
 
 const featureProjectContainer = css`
   padding: 4rem 0;
@@ -34,7 +35,7 @@ const featuredProjectStyles = css`
 `;
 
 const allProjectsLinkStyle = css`
-  ${tw`text-blue-500 hover:underline`}
+  ${tw`flex flex-row gap-1 text-blue-500 hover:underline`}
 `;
 
 /*
@@ -101,7 +102,7 @@ export const FeaturedProject = () => {
         <h1 css={featuredProjectTitleStyle}>Featured Projects</h1>
 
         <Link css={allProjectsLinkStyle} to="/projects">
-          All Projects
+          All Projects <RightArrow />
         </Link>
       </div>
 
