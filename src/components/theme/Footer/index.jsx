@@ -17,12 +17,6 @@ const footerContainerStyles = css`
 
   background-color: #161314;
 
-  @media (max-width: 1960px) {
-    ${tw`px-4 py-8`}
-
-    padding-top: 14rem;
-  }
-
   :last-child {
     ${tw`mt-8`}
   }
@@ -31,19 +25,27 @@ const footerContainerStyles = css`
 const footerTopRowStyles = css`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 
   @media (max-width: 960px) {
     flex-direction: column;
   }
 
-  ${tw`px-16 pb-8`}
+  @media (max-width: 1979px) {
+    ${tw`pt-12`}
+  }
+
+  @media (min-width: 1980px) {
+    ${tw`px-4 pt-8`}
+  }
+
+  ${tw`px-16 pb-4`}
 `;
 
 const footerBottomRowStyles = css`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 
   margin-bottom: 2rem;
 
@@ -52,11 +54,20 @@ const footerBottomRowStyles = css`
     margin-bottom: 0;
   }
 
-  ${tw`px-16 pb-8`}
+  @media (max-width: 1979px) {
+    justify-content: space-between;
+  }
+
+  @media (min-width: 1980px) {
+    ${tw`justify-center gap-64`}
+  }
+
+  ${tw`px-16 pb-4`}
 `;
 
 const footerTopSectionStyle = css`
   color: #f5f5f5;
+  max-width: 200px;
   ${tw`flex flex-col flex-1`}
 
   @media (max-width: 960px) {
