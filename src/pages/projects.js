@@ -48,7 +48,7 @@ const Projects = ({ data }) => {
                 </TagContainer>
                 <OneLiner>{post.frontmatter.oneLiner}</OneLiner>
                 <AlignRight>
-                  <Link className="link" to={post.frontmatter.path}>
+                  <Link className="proj-link" to={post.frontmatter.path}>
                     Click here for more {`>>`}
                   </Link>
                 </AlignRight>
@@ -73,7 +73,7 @@ export const staticQuery = graphql`
             tags
             hero {
               childImageSharp {
-                fluid(maxWidth: 800) {
+                fluid(maxWidth: 800, maxHeight:400) {
                   ...GatsbyImageSharpFluid
                 }
               }

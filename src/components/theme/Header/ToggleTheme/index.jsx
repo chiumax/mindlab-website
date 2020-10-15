@@ -13,7 +13,6 @@ const ToggleTheme = () => {
   return (
     <ToggleThemeContainer type="button" onClick={toggleTheme}>
       <img src={themeData === 'light' ? moonIcon : sunIcon} alt={theme} />
-      <div>yeet</div>
     </ToggleThemeContainer>
   );
 };

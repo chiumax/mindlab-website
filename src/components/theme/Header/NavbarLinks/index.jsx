@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'providers/ThemeProvider';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-
+import ToggleTheme from '../ToggleTheme';
 import { NavLinksWrapper } from './styles';
 
 export default function NavbarLinks({ desktop }) {
@@ -30,13 +30,12 @@ export default function NavbarLinks({ desktop }) {
       <div
         style={{
           margin: '0 auto',
-          maxWidth: 960,
-          padding: '0px 1.0875rem 1.45rem',
-          paddingTop: 0,
+          maxWidth: 960
         }}
       >
         {routes}
       </div>
+      <ToggleTheme/>
     </NavLinksWrapper>
   );
 }
