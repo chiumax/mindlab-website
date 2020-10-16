@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
-import tw, { css } from 'twin.macro';
 import { graphql, Link } from 'gatsby';
-import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 import Img from 'gatsby-image';
 
 import { ThemeContext } from 'providers/ThemeProvider';
@@ -11,24 +9,16 @@ import {
   PageWrapper,
   Details,
   ProjectCard,
-  ResponsiveColumn,
-  ResponsiveMobileContainer,
   ResponsiveDesktopContainer,
   TagContainer,
   Tag,
-  StyledLink,
   OneLiner,
   AlignRight,
-} from 'pages/styles';
-
-const projectHeaderStyles = css`
-  ${tw`text-xl mb-4`}
-`;
+} from 'styles/common-custom-styles';
 
 const Projects = ({ data }) => {
   const { theme, themeData } = useContext(ThemeContext);
   const { edges: posts } = data.allMarkdownRemark;
-  const breakpoints = useBreakpoint();
 
   // let heroImg = post.frontmatter.hero.childImageSharp.fluid;
 

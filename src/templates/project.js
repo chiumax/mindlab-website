@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
 import { graphql } from 'gatsby';
-import Img from "gatsby-image"
+import Img from 'gatsby-image';
 
 import { ThemeContext } from 'providers/ThemeProvider';
 import { Container, Layout, SEO } from 'components/common';
 import { Header } from 'components/theme';
-import { PageWrapper, Details,  TagContainer,
-  Tag } from 'pages/styles';
+import { PageWrapper, TagContainer, Tag } from 'styles/common-custom-styles';
 // import "./pilcrow.css";
 // import "./hljs-github.min.css";
-import "./github-markdown.css";
+import './github-markdown.css';
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query we'll write in a bit
@@ -20,21 +19,26 @@ export default function Template({
   const { frontmatter, html } = markdownRemark;
   const { theme } = useContext(ThemeContext);
 
-  let heroImg = frontmatter.hero.childImageSharp.fluid;
+  const heroImg = frontmatter.hero.childImageSharp.fluid;
 
   return (
     <Layout>
       <SEO />
       <Header />
       <PageWrapper as={Container}>
-        <div theme={theme} className={"markdown-body"}>
-          <Img fluid={heroImg}/>
+        <div theme={theme} className="markdown-body">
+          <Img fluid={heroImg} />
           <h1>{frontmatter.title}</h1>
           <TagContainer>
-                          {frontmatter.tags ?(frontmatter.tags.map((tag)=> (
-                              <Tag theme={(theme)}>{tag}{console.log(theme)}</Tag>
-                              ))):""}
-                        </TagContainer>
+            {frontmatter.tags
+              ? frontmatter.tags.map(tag => (
+                  <Tag theme={theme}>
+                    {tag}
+                    {console.log(theme)}
+                  </Tag>
+                ))
+              : ''}
+          </TagContainer>
           <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </PageWrapper>

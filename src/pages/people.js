@@ -7,8 +7,8 @@ import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 import { ThemeContext } from 'providers/ThemeProvider';
 import { Container, Layout, SEO } from 'components/common';
 import { Header } from 'components/theme';
-import { ResponsiveMobileContainer, ResponsiveDesktopContainer, ResponsiveColumn } from 'pages/styles';
-import { PageWrapper, Details } from './styles';
+import { ResponsiveMobileContainer, ResponsiveDesktopContainer, ResponsiveColumn } from 'styles/common-custom-styles';
+import { PageWrapper, Details } from '../styles/common-custom-styles';
 
 import { hasSemesterOverlap, CURRENT_SEMESTER } from '../utils/time-utils';
 

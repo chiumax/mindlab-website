@@ -20,7 +20,7 @@ const footerContainerStyles = css`
 `;
 
 const footerTopRowStyles = css`
-  ${tw`flex flex-row justify-between px-16 py-8`}
+  ${tw`flex flex-row justify-between px-16 py-8 gap-4`}
 
   @media (max-width: 960px) {
     ${tw`flex-col`}

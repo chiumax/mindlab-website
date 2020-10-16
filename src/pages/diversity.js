@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { Container, Layout, SEO } from 'components/common';
 import { Header } from 'components/theme';
 import { ThemeContext } from 'providers/ThemeProvider';
-import { PageWrapper, Details } from './styles';
+import { PageWrapper, Details } from '../styles/common-custom-styles';
 
 /**
  * The diversity section is requested by Professor Agrawala. He wants to
