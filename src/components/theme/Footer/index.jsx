@@ -51,7 +51,7 @@ const footerBottomRowStyles = css`
 
 const footerTopSectionStyle = css`
   color: #f5f5f5;
-  max-width: 300px;
+  width: 250px;
   ${tw`flex flex-col flex-1`}
 
   @media (max-width: 960px) {

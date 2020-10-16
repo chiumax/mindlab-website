@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import overlayIllustration from 'assets/illustrations/overlay.svg';
+import tw, { css } from 'twin.macro';
 
 export const Wrapper = styled.div`
   padding-bottom: 4rem;
- 
+
   background-size: contain;
   background-position: right top;
   background-repeat: no-repeat;
@@ -14,6 +14,8 @@ export const IntroWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  ${tw`flex-wrap`}
 
   @media (max-width: 960px) {
     flex-direction: column;
@@ -33,8 +35,6 @@ export const Details = styled.div`
     font-size: 36pt;
     color: ${({ theme }) => (theme === 'light' ? '#212121' : '#fff')};
 
-
-
     @media (max-width: 680px) {
       font-size: 30pt;
     }
@@ -45,8 +45,6 @@ export const Details = styled.div`
     font-size: 32pt;
     font-weight: normal;
     color: ${({ theme }) => (theme === 'light' ? '#707070' : '#e6e6e6')};
-
-
 
     @media (max-width: 680px) {
       font-size: 26pt;

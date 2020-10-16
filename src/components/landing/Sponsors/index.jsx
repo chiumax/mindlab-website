@@ -16,12 +16,6 @@ const sponsorContainerStyles = css`
 `;
 
 export const Sponsors = () => (
-  // const sponsorLogos = useStaticQuery(graphql`
-  //   query SponsorLogoQuery {
-
-  //   }
-  // `);
-
   <SponsorsWrapper as={Container} id="sponsors" css={sponsorsWrapperStyles}>
     <h1>Sponsors</h1>
 
