@@ -10,7 +10,7 @@ import { Header } from 'components/theme';
 import { ResponsiveMobileContainer, ResponsiveDesktopContainer, ResponsiveColumn } from 'pages/styles';
 import { PageWrapper, Details } from './styles';
 
-import { hasSemesterOverlap, NUM_PAST_YEARS, pastNYearTerms, SEASONS, CURRENT_SEMESTER } from '../utils/time-utils';
+import { hasSemesterOverlap, CURRENT_SEMESTER } from '../utils/time-utils';
 
 // Styles
 // TODO: refactor how styles are handled. Maybe have a `common` folder/file
@@ -96,7 +96,6 @@ const PAST_SEMESTERS = [
     year: 2018,
   },
 ];
-console.log('PAST_SEMESTERS', PAST_SEMESTERS);
 
 /**
  * Uses the following article to query data from a JSON file as GraphQL.

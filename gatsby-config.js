@@ -91,7 +91,6 @@ module.exports = {
         path: `${__dirname}/src/projects`,
       },
     },
-    // Reads files from file system. In this case, json files from `src/data/people`
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -99,7 +98,13 @@ module.exports = {
         path: `${__dirname}/src/data/people`,
       },
     },
-    // Reads files from file system. In this case, image files from `src/photos`
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `groupPhotos`,
+        path: `${__dirname}/src/data/group-photos`,
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -129,20 +134,18 @@ module.exports = {
               // base for generating different widths of each image.
             },
           },
-          { 
+          {
             resolve: `gatsby-remark-embed-video`,
             options: {
-              
-                width: 800,
-                ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
-                height: 400, // Optional: Overrides optional.ratio
-                related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
-                noIframeBorder: true, //Optional: Disable insertion of <style> border: 0
-                containerClass: 'embedVideo-container', //Optional: Custom CSS class for iframe container, for multiple classes separate them by space
-              
-            }
+              width: 800,
+              ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
+              height: 400, // Optional: Overrides optional.ratio
+              related: false, // Optional: Will remove related videos from the end of an embedded YouTube video.
+              noIframeBorder: true, // Optional: Disable insertion of <style> border: 0
+              containerClass: 'embedVideo-container', // Optional: Custom CSS class for iframe container, for multiple classes separate them by space
+            },
           },
-          `gatsby-remark-responsive-iframe`
+          `gatsby-remark-responsive-iframe`,
         ],
       },
     },
