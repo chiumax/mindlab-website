@@ -38,6 +38,8 @@ Most of the people updates revolve around the `src/data/people/people.json` file
 
 †: Moving interns from `current` to `previous` or from `previous` to `not mentioned` are handled implicitly via GraphQL query.
 
+After updating the `people.json` file, you will need to add `.png` image to `src/data/photos`. The `.png` image filename should match the person's picture entry in `people.json`.
+
 ### Project Tasks
 
 Changes to any projects can be found in `src/projects`. Each project has its own folder with at least two files:
