@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, SEO } from 'components/common';
-import { GroupPhoto, LabIntro, Announcements, Sponsors, FeaturedProject } from 'components/landing';
+import { GroupPhoto, LabIntro, Announcements, Collaborators, FeaturedProject } from 'components/landing';
 
 export default () => (
   <Layout>
@@ -9,6 +9,6 @@ export default () => (
     <LabIntro />
     <FeaturedProject />
     <Announcements />
-    <Sponsors />
+    <Collaborators />
   </Layout>
 );
