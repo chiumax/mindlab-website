@@ -1,0 +1,16 @@
+{
+  "id": 17,
+  "name": "Atul Shaurya",
+  "picture": "./atul-shaurya.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}

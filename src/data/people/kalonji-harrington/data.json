@@ -1,0 +1,16 @@
+{
+  "id": 11,
+  "name": "Kalonji Harrington",
+  "picture": "./kalonji-harrington.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 24,
+  "name": "Yehuda Katz",
+  "picture": "./yehuda-katz.png",
+  "role": "Graduate Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": false,
+    "priority": 3
+  }
+}

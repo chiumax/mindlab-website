@@ -1,0 +1,16 @@
+{
+  "id": 18,
+  "name": "Sepehr Tabaeizadeh",
+  "picture": "./sepehr-tabaeizadeh.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "name": "Professor Ashok Agrawala",
+  "picture": "./ashok-agrawala.png",
+  "role": "Faculty",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 5
+  }
+}

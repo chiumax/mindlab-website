@@ -1,0 +1,16 @@
+{
+  "id": 5,
+  "name": "Anvitha Bhatt",
+  "picture": "./anvitha-bhatt.png",
+  "role": "Graduate Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 3
+  }
+}

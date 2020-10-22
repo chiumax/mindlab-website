@@ -1,0 +1,16 @@
+{
+  "id": 7,
+  "name": "Tom Chen",
+  "picture": "./tom-chen.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 27,
+  "name": "Moshe Katz",
+  "picture": "./moshe-katz.png",
+  "role": "Graduate Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": false,
+    "priority": 3
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 22,
+  "name": "Sam Attwood",
+  "picture": "./icon-512x512.png",
+  "role": "Associate",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": false,
+    "priority": 1
+  }
+}

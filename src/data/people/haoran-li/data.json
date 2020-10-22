@@ -1,0 +1,16 @@
+{
+  "id": 12,
+  "name": "Haoran (Jason) Li",
+  "picture": "./haoran-li.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}

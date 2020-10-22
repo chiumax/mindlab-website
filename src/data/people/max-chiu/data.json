@@ -1,0 +1,16 @@
+{
+  "id": 8,
+  "name": "Max Chiu",
+  "picture": "./max-chiu.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}

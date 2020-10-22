@@ -1,0 +1,16 @@
+{
+  "id": 2,
+  "name": "Professor Nirupam Roy",
+  "picture": "../photos/nirupam-roy.png",
+  "role": "Faculty",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": false,
+    "priority": 5
+  }
+}

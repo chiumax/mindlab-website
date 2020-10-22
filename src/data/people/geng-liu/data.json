@@ -1,0 +1,16 @@
+{
+  "id": 13,
+  "name": "Geng (Leo) Liu",
+  "picture": "./geng-liu.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": 4,
+  "name": "Faizan Wajid",
+  "picture": "./faizan-wajid.png",
+  "role": "Research Staff",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 4
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": 26,
+  "name": "Brian Xiang",
+  "picture": "",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Summer",
+      "year": 2020
+    }
+  ]
+  ,
+  "groupPhoto": {
+    "inGroupPhoto": false,
+    "priority": 0
+  }
+}

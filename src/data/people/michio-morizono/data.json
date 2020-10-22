@@ -1,0 +1,16 @@
+{
+  "id": 14,
+  "name": "Michio Morizono",
+  "picture": "./michio-morizono.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}

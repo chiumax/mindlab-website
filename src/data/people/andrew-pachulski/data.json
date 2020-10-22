@@ -1,0 +1,16 @@
+{
+  "id": 25,
+  "name": "Andrew Pachulski",
+  "picture": "",
+  "role": "Associate",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": false,
+    "priority": 1
+  }
+}
