@@ -1,0 +1,16 @@
+{
+  "id": 19,
+  "name": "Jason Tan",
+  "picture": "./jason-tan.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}

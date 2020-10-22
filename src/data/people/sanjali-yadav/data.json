@@ -1,0 +1,16 @@
+{
+  "id": 20,
+  "name": "Sanjali Yadav",
+  "picture": "./sanjali-yadav.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}

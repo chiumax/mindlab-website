@@ -1,0 +1,16 @@
+{
+  "id": 21,
+  "name": "Abhinav Yedla",
+  "picture": "./abhinav-yedla.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}

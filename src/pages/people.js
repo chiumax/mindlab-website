@@ -109,23 +109,14 @@ const PAST_SEMESTERS = [
 const People = () => {
   const data = useStaticQuery(graphql`
     query PeopleQuery {
-      allFile(filter: { name: { eq: "people" } }) {
+      allFile(filter: { sourceInstanceName: { eq: "people" } }) {
         edges {
           node {
-            childrenPeopleJson {
-              id
-              name
-              picture {
-                childImageSharp {
-                  fixed(width: 220) {
-                    ...GatsbyImageSharpFixed
-                  }
-                }
-              }
-              role
-              semestersActive {
-                season
-                year
+            id
+            name
+            childImageSharp {
+              fixed(width: 220) {
+                ...GatsbyImageSharpFixed
               }
             }
           }

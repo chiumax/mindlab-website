@@ -1,0 +1,16 @@
+{
+  "id": 3,
+  "name": "Mara Cai",
+  "picture": "./mara-cai.png",
+  "role": "Research Staff",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 4
+  }
+}

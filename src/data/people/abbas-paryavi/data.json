@@ -1,0 +1,16 @@
+{
+  "id": 15,
+  "name": "Abbas Paryavi",
+  "picture": "./abbas-paryavi.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}

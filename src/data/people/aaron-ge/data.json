@@ -1,0 +1,16 @@
+{
+  "id": 10,
+  "name": "Aaron Ge",
+  "picture": "./aaron-ge.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}

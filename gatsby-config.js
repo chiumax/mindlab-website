@@ -93,13 +93,6 @@ module.exports = {
         path: `${__dirname}/src/data/group-photos`,
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: `people`,
-        path: `${__dirname}/src/data/photos`,
-      },
-    },
     // Transforms Markdown/YAML files to HTML/JSON
     {
       resolve: `gatsby-transformer-remark`,
@@ -139,6 +132,11 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     // allows reading local JSON data--to be used to query the people.json data as GraphQL
-    'gatsby-transformer-json',
+    {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: `PeopleJson`, // a fixed string
+      },
+    },
   ],
 };

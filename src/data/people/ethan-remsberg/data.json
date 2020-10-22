@@ -1,0 +1,16 @@
+{
+  "id": 16,
+  "name": "Ethan Remsberg",
+  "picture": "./ethan-remsberg.png",
+  "role": "Student",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "groupPhoto": {
+    "inGroupPhoto": true,
+    "priority": 2
+  }
+}
