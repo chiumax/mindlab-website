@@ -22,11 +22,14 @@ body {
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 }
 
-.link{
+.proj-link{
   color: ${({ theme }) => theme.accent};
   position: absolute;
 }
-.link:hover {
-  border-bottom: 1px solid;
+.link{
+  color: ${({ theme }) => theme.accent};
+}
+a:hover {
+  text-decoration: underline;
 }
 `;

@@ -30,15 +30,11 @@ export default function Template({
           <Img fluid={heroImg} />
           <h1>{frontmatter.title}</h1>
           <TagContainer>
-            {frontmatter.tags
-              ? frontmatter.tags.map(tag => (
-                  <Tag theme={theme}>
-                    {tag}
-                    {console.log(theme)}
-                  </Tag>
-                ))
-              : ''}
-          </TagContainer>
+                          {frontmatter.tags ?(frontmatter.tags.map((tag)=> (
+                              <Tag theme={(theme)}>{tag}{console.log(theme)}</Tag>
+                              ))):""}
+                        </TagContainer>
+          <div>{frontmatter.oneLiner}</div>
           <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </PageWrapper>
@@ -54,6 +50,7 @@ export const pageQuery = graphql`
         path
         title
         tags
+        oneLiner
         hero {
           childImageSharp {
             fluid(maxWidth: 800) {
