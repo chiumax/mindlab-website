@@ -8,7 +8,7 @@ import { arrayIntersection } from './array-utils';
    Modify these values to change the current semester
 * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 const CURRENT_YEAR = 2020;
-const CURRENT_SEASON = 'Spring';
+const CURRENT_SEASON = 'Fall';
 export const NUM_PAST_YEARS = 2; // controls the number of years to display
 // list of all available semester types
 export const SEASONS = ['Spring', 'Summer', 'Fall'];
