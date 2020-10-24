@@ -9,7 +9,7 @@ export const Global = createGlobalStyle`
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', Helvetica, sans-serif;
+  font-family: 'Lato', Helvetica, sans-serif;
   color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.primary};
   transition: .3s all;
@@ -20,6 +20,10 @@ body {
   -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', 'Helvetica', sans-serif;
 }
 
 .proj-link{
