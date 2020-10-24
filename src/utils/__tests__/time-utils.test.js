@@ -480,7 +480,7 @@ describe('Unit tests for time-utils.js', () => {
       expect(actualResult).toEqual(expectedResult);
     });
 
-    it('should find an overlap', () => {
+    it('should find an overlap with two arrays', () => {
       // setup
       const arrayA = [
         {
@@ -500,6 +500,37 @@ describe('Unit tests for time-utils.js', () => {
         },
         {
           season: 'Spring',
+          year: 2020,
+        },
+      ];
+
+      // run test
+      const actualResult = hasSemesterOverlap(arrayA, arrayB);
+
+      // make assertion
+      expect(actualResult).toEqual(true);
+    });
+
+    it('should find an overlap between an array and an array with only one element', () => {
+      // setup
+      const arrayA = [
+        {
+          season: 'Fall',
+          year: 2020,
+        },
+        {
+          season: 'Summer',
+          year: 2020,
+        },
+        {
+          season: 'Spring',
+          year: 2019,
+        },
+      ];
+
+      const arrayB = [
+        {
+          season: 'Summer',
           year: 2020,
         },
       ];
