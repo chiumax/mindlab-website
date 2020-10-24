@@ -138,5 +138,12 @@ module.exports = {
         typeName: `PeopleJson`, // a fixed string
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [`Playfair Display`, `Lato`],
+        display: 'swap',
+      },
+    },
   ],
 };
