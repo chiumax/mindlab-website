@@ -238,7 +238,7 @@ const People = () => {
   // Past Students, as determined by the PAST_SEMESTERS array
   const students = peopleData.filter(person => person.role === 'Student');
   const pastStudents = students.filter(person => hasSemesterOverlap(person.semestersActive, PAST_SEMESTERS));
-  const pastStudentNames = pastStudents.map(person => getFileName(person.name));
+  const pastStudentNames = pastStudents.map(person => person.name);
 
   /*
     Similar to the front page, we will have to split the initial query into two parts:
