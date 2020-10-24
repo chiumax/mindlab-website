@@ -1,5 +1,5 @@
 // import styled from 'styled-components';
-import tw, { styled } from 'twin.macro';
+import tw, { styled, css } from 'twin.macro';
 
 export const PageWrapper = styled.div`
   padding: 4rem 0;
@@ -78,9 +78,8 @@ export const Details = styled.div`
   }
 `;
 
-export const ResponsiveMobileContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+export const responsiveMobileContainerStyles = css`
+  ${tw`flex flex-col items-center`}
 `;
 
 export const ResponsiveDesktopContainer = styled.div`
@@ -95,9 +94,8 @@ export const ResponsiveDesktopContainer = styled.div`
   }
 `;
 
-export const ResponsiveColumn = styled.div`
-  display: flex;
-  flex-direction: column;
+export const responsiveColumnStyles = css`
+  ${tw`flex flex-col`}
 `;
 
 export const ProjectCard = styled.div`
