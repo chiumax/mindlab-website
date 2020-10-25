@@ -1,4 +1,4 @@
-export * from './GroupPhoto';
+export * from './Hero';
 export * from './LabIntro';
 export * from './FeaturedProject';
 export * from './Announcements';
