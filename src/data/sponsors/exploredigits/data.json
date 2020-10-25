@@ -1,0 +1,13 @@
+{
+  "id": 3,
+  "companyName": "ExploreDigits",
+  "logo": "./explore-digits-logo.png",
+  "order": 2,
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "link": "https://www.exploredigits.com/"
+}

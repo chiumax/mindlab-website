@@ -1,0 +1,13 @@
+{
+  "id": 4,
+  "companyName": "Nair Associates",
+  "logo": "./nair-logo.png",
+  "order": 1,
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "link": "https://www.nair-assoc.com/"
+}

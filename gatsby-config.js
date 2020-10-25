@@ -89,8 +89,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: `groupPhotos`,
-        path: `${__dirname}/src/data/group-photos`,
+        name: `sponsors`,
+        path: `${__dirname}/src/data/sponsors`,
       },
     },
     // Transforms Markdown/YAML files to HTML/JSON
