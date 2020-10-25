@@ -1,11 +1,11 @@
 import React from 'react';
 import { Layout, SEO } from 'components/common';
-import { GroupPhoto, LabIntro, Announcements, Collaborators, FeaturedProject } from 'components/landing';
+import { Hero, LabIntro, Announcements, Collaborators, FeaturedProject } from 'components/landing';
 
 export default () => (
   <Layout>
     <SEO />
-    <GroupPhoto />
+    <Hero />
     <LabIntro />
     <FeaturedProject />
     <Announcements />
