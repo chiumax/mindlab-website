@@ -6,9 +6,6 @@ const useMedia = (queries, values, defaultValue) => {
   useEffect(() => {
     const mediaQueryLists = queries.map(q => window.matchMedia(q));
 
-    // eslint-disable-next-line no-console
-    console.log('mediaQueryLists', mediaQueryLists);
-
     const getValue = () => {
       const index = mediaQueryLists.findIndex(mql => mql.matches);
       return typeof values[index] !== 'undefined' ? values[index] : defaultValue;

@@ -1,0 +1,13 @@
+{
+  "id": 5,
+  "companyName": "Spire Health",
+  "logo": "./spire-logo.png",
+  "order": 3,
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "link": "https://www.spirehealth.com/"
+}

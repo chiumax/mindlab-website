@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "companyName": "Conscious Breathing",
+  "logo": "./cb-logo.png",
+  "order": 5,
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "link": "https://www.consciousbreathing.com/"
+}

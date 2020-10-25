@@ -1,0 +1,13 @@
+{
+  "id": 7,
+  "companyName": "Tibco Software",
+  "logo": "./tibco-logo.png",
+  "order": 6,
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "link": "https://www.tibco.com/"
+}

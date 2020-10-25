@@ -1,0 +1,12 @@
+{
+  "id": 8,
+  "companyName": "UMD School of Public Health",
+  "logo": "./umd-sph-logo.png",
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "link": "#"
+}

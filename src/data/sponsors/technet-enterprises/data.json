@@ -1,0 +1,13 @@
+{
+  "id": 6,
+  "companyName": "TechNet Enterprises",
+  "logo": "./tn-logo.png",
+  "order": 4,
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ],
+  "link": "https://www.technetenterprises.com/"
+}

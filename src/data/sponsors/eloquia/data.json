@@ -1,0 +1,12 @@
+{
+  "id": 3,
+  "companyName": "Eloquia",
+  "logo": "./eloquia-banner.png",
+  "order": 9,
+  "semestersActive": [
+    {
+      "season": "Fall",
+      "year": 2020
+    }
+  ]
+}
