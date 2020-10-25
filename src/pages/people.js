@@ -221,11 +221,8 @@ const People = () => {
     .filter(person => person.role === 'Associate')
     .filter(person => hasSemesterOverlap(person.semestersActive, [CURRENT_SEMESTER]))
     .map(person => ({ ...person, photoFilename: getFileName(person.picture) }));
-  console.log('currentAssociates', currentAssociates);
   const currentAssociateFilenames = currentAssociates.map(person => getFileName(person.picture));
-  console.log('currentAssociateFilenames', currentAssociateFilenames);
   const currentAssociatePhotos = photos.filter(photo => currentAssociateFilenames.includes(photo.node.name));
-  console.log('currentAssociatePhotos', currentAssociatePhotos);
   const currentAssociatePhotosAndName = currentAssociatePhotos.map(associatePhoto => {
     // search in `currentFaculty` for the element whose `element.name` matches `facultyPhoto.node.name`
     const foundAssociate = currentAssociates.filter(
