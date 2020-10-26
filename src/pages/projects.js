@@ -23,9 +23,9 @@ const Projects = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
   const tags = [...new Set(posts.map(({node:post})=> (post.frontmatter.tags)).flat())].filter((el)=>{return el!=null;});
   const options = tags.map((tag)=>({value:tag,label:tag}))
-  console.log(options);
+  tags.unshift("Select...");
+  options.unshift({value:null,label:"Select..."})
   const breakpoints = useBreakpoint();
-  let select = "bruh";
   // let heroImg = post.frontmatter.hero.childImageSharp.fluid;
 
   return (
@@ -39,15 +39,6 @@ const Projects = ({ data }) => {
           
           <ResponsiveDesktopContainer>
             {(posts.filter(({node:post})=>{
-              if(currentTag == null) {
-                return true;
-              } else {
-                if(post.frontmatter.tags){
-                  console.log("bruh")
-                  console.log(currentTag);
-                  console.log(post.frontmatter.tags)
-                }
-              }
               return currentTag==null?true:!!post.frontmatter.tags?post.frontmatter.tags.includes(currentTag):false}).map(({ node: post }) => (
               <ProjectCard key={post.id} theme={(theme, themeData)}>
                 <Link to={post.frontmatter.path}>
