@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import tw, { css } from 'twin.macro';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
-
+import Select from 'react-select';
 import { ThemeContext } from 'providers/ThemeProvider';
 import { Container, Layout, SEO } from 'components/common';
 import { Header } from 'components/theme';
@@ -17,9 +18,14 @@ import {
 } from 'styles/common-custom-styles';
 
 const Projects = ({ data }) => {
+  const [currentTag, setTag] = useState(null);
   const { theme, themeData } = useContext(ThemeContext);
   const { edges: posts } = data.allMarkdownRemark;
-
+  const tags = [...new Set(posts.map(({node:post})=> (post.frontmatter.tags)).flat())].filter((el)=>{return el!=null;});
+  const options = tags.map((tag)=>({value:tag,label:tag}))
+  tags.unshift("Select...");
+  options.unshift({value:null,label:"Select..."})
+  const breakpoints = useBreakpoint();
   // let heroImg = post.frontmatter.hero.childImageSharp.fluid;
 
   return (
@@ -29,8 +35,11 @@ const Projects = ({ data }) => {
       <PageWrapper as={Container}>
         <Details theme={(theme, themeData)}>
           <h1>Projects</h1>
+          <Select options={options} onChange={(tag)=>setTag(tag.value)} value={currentTag} />
+          
           <ResponsiveDesktopContainer>
-            {posts.map(({ node: post }) => (
+            {(posts.filter(({node:post})=>{
+              return currentTag==null?true:!!post.frontmatter.tags?post.frontmatter.tags.includes(currentTag):false}).map(({ node: post }) => (
               <ProjectCard key={post.id} theme={(theme, themeData)}>
                 <Link to={post.frontmatter.path}>
                   <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
@@ -53,7 +62,7 @@ const Projects = ({ data }) => {
                   </Link>
                 </AlignRight>
               </ProjectCard>
-            ))}
+            )))}
           </ResponsiveDesktopContainer>
         </Details>
       </PageWrapper>
