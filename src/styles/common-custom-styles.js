@@ -88,6 +88,7 @@ export const ResponsiveDesktopContainer = styled.div`
   justify-content: flex-start;
   align-content: flex-start;
   flex-wrap:wrap;
+  margin-top:2rem;
   @media (max-width: 960px) {
     flex-direction: column;
   }

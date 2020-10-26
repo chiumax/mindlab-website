@@ -82,7 +82,7 @@ const builtByStyle = css`
 `;
 
 const footerLinkStyle = css`
-  ${tw`hover:underline hover:text-yellow-500`}
+  ${tw`text-blue-500 hover:underline hover:text-yellow-500`}
 `;
 
 const widthAuto = () => ({ tw: 'w-auto' });
@@ -113,7 +113,7 @@ export const Footer = () => {
       }
     }
   `).site.siteMetadata.menuLinks.map(menuLink => (
-    <Link className="link" css={footerLinkStyle} to={menuLink.link} key={menuLink.link} getProps={widthAuto}>
+    <Link css={footerLinkStyle} to={menuLink.link} key={menuLink.link} getProps={widthAuto}>
       {menuLink.name}
     </Link>
   ));
@@ -129,7 +129,7 @@ export const Footer = () => {
         <section className="footer-nav-links" css={footerTopSectionStyle}>
           <h1 css={footerSectionTitleStyles}>Lost?</h1>
 
-          <Link className="link" css={footerLinkStyle} to="/">
+          <Link css={footerLinkStyle} to="/">
             Home
           </Link>
           {internalRoutes}
@@ -147,7 +147,7 @@ export const Footer = () => {
         <section className="footer-social-container" css={footerTopSectionStyle}>
           <h1 css={footerSectionTitleStyles}>Stay In Touch</h1>
 
-          <a className="link" css={footerLinkStyle} href="mailto:agrawala@cs.umd.edu">
+          <a css={footerLinkStyle} href="mailto:agrawala@cs.umd.edu">
             Ask a question
           </a>
         </section>

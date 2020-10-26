@@ -25,7 +25,7 @@ const Projects = ({ data }) => {
   const options = tags.map((tag)=>({value:tag,label:tag}))
   tags.unshift("Select...");
   options.unshift({value:null,label:"Select..."})
-  const breakpoints = useBreakpoint();
+
   // let heroImg = post.frontmatter.hero.childImageSharp.fluid;
 
   return (
